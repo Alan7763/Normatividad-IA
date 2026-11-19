@@ -1,19 +1,16 @@
-# Sistema Forense Constitucional de Normatividad en Inteligencia Artificial (I.D.E.R.N.A.)
+# Sistema de Analisis Constitucional de Normatividad en Inteligencia Artificial (I.J.U.R.I.S.)
 
-Plataforma forense jurídica y de auditoría algorítmica para evaluar sistemas de Inteligencia Artificial frente a la Constitución Política de los Estados Unidos Mexicanos (CPEUM), leyes de privacidad y normativas internacionales de derechos humanos (EU AI Act, Recomendaciones UNESCO).
+Plataforma de analisis jurídico y de auditoría algorítmica para evaluar sistemas de Inteligencia Artificial frente a la Constitución Política de los Estados Unidos Mexicanos (CPEUM), leyes de privacidad y normativas internacionales de derechos humanos (EU AI Act, Recomendaciones UNESCO).
 
----
-
-## 🚀 Características Principales
+## Características Principales
 
 - **Diagnóstico y Control de Convencionalidad**: Identificación automática de preceptos constitucionales vulnerados (Arts. 1, 6, 14, 16 CPEUM) y determinación de niveles de riesgo ético y algorítmico (Inadmisible, Alto, Medio, Bajo/Positivo).
 - **Doble Motor de Inferencia**:
   - **Modo Nube (Groq API)**: Análisis mediante modelos LLM con latencia mínima.
-  - **Modo Local / Heurístico**: Compatibilidad con modelos locales (Ollama) o motor de inferencia jurídica determinista integrado.
+  - **Modo Local (solo en el equipo que actua como servidor / Heurístico**: Compatibilidad con modelos locales (Ollama) o motor de inferencia jurídica determinista integrado.
 - **Asistente Interactivo y Robot Guiado**: Interfaz moderna con visualización interactiva y menú de preguntas frecuentes sobre derechos humanos y normatividad.
-- **Base de Datos y Seguridad**: Control de sesiones, auditoría forense (`normatividad_ia.db` autogenerada), hashing seguro con `bcrypt` y protección de rutas administrativas.
+- **Base de Datos y Seguridad**: Control de sesiones, auditoría (`normatividad_ia.db` autogenerada), hashing seguro con `bcrypt` y protección de rutas administrativas.
 
----
 
 ## 🛠️ Requisitos e Instalación Local
 
@@ -40,7 +37,7 @@ Plataforma forense jurídica y de auditoría algorítmica para evaluar sistemas 
 4. **Configurar llave de Groq (Opcional para modo Nube)**:
    - Crear un archivo `.env` o definir la variable de entorno:
      ```env
-     GROQ_API_KEY=tu_llave_de_groq_aqui
+     GROQ_API_KEY=tu_llave_de_groq_aqui (ejemplo)
      ```
    - O colocar la llave dentro de un archivo de texto llamado `api`.
 
@@ -54,29 +51,11 @@ Plataforma forense jurídica y de auditoría algorítmica para evaluar sistemas 
    ```
    Abre tu navegador en `http://localhost:8000`.
 
----
-
-## 🌐 Despliegue en Render (Render.com)
-
-El proyecto incluye los archivos `render.yaml` y `Procfile` listos para desplegarse como **Web Service** en Render:
-
-1. Inicia sesión en [Render.com](https://render.com) y selecciona **New > Web Service**.
-2. Conecta tu repositorio de GitHub.
-3. Configura los parámetros básicos del servicio:
-   - **Environment**: `Python`
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
-4. En la sección **Environment Variables**, agrega:
-   - `GROQ_API_KEY`: Tu llave de API de Groq (ejemplo: `gsk_...`).
-   - `PYTHON_VERSION`: `3.11.9` (o superior).
-5. Haz clic en **Deploy Web Service**. Render compilará e iniciará el sistema automáticamente con certificado SSL / HTTPS gratuito.
-
----
 
 ## 📁 Estructura del Proyecto
 
 ```text
-├── Lawfice/              # Recursos estáticos (CSS, JS, imágenes, fuentes, librerías)
+├── Lawfice/              # Recursos estáticos (CSS, JS, imágenes, fuentes, librerías) uso e integracion de caracteristicas
 ├── ai_engine.py          # Motor de análisis constitucional, casos precargados y Groq
 ├── database.py           # Gestor de base de datos SQLite y auditoría forense
 ├── index.html            # Interfaz de usuario interactiva
