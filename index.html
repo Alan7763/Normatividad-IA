@@ -1,0 +1,2368 @@
+<!DOCTYPE html>
+<html lang="es-MX" data-wf-page="66ee69d9b13d0243e31578d7" data-wf-site="66ee69d9b13d0243e31578d8">
+
+<head>
+    <meta charset="utf-8">
+    <title>iJURIS • Tribunal y Observatorio Forense de Normatividad en IA y Derechos Humanos (México)</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Auditoría Constitucional de Algoritmos, CPEUM, SCJN, Derechos Humanos, LFPDPPP, CNDH, UNESCO AI Act" name="keywords">
+    <meta content="Plataforma de Control Constitucional y Evaluación Deontológica de Algoritmos e Inteligencia Artificial." name="description">
+
+    <!-- Favicon -->
+    <link href="/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts: Inter & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheets -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS for Modals and Utilities -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Master iDesigner Stylesheet -->
+    <link href="/css/idesigner.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --black: #040c08;
+            --bg-dark: #05100a;
+            --mint: #58d68d;
+            --mint-dark: #27ae60;
+            --forest: #0d281a;
+            --accent-green: #145a32;
+            --bg-card: rgba(13, 33, 23, 0.72);
+            --border-card: rgba(88, 214, 141, 0.22);
+        }
+
+        body {
+            background-color: var(--black) !important;
+            color: #d6e4dc;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Glassmorphic Tech Navbar */
+        .juridical-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1050;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(4, 12, 8, 0.88);
+            border-bottom: 1px solid rgba(88, 214, 141, 0.16);
+            padding: 14px 4vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-logo-text:hover {
+            color: #ffffff;
+        }
+
+        .brand-badge {
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            background: rgba(88, 214, 141, 0.15);
+            color: var(--mint);
+            border: 1px solid rgba(88, 214, 141, 0.3);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links-wrap {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-link-custom {
+            color: #b5cebf;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.25s ease;
+        }
+
+        .nav-link-custom:hover {
+            color: var(--mint);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at 50% 50%, #0d281a 0%, #06130c 55%, #030805 100%) !important;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-wrapper-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+            z-index: 1;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .hero-title-massive {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3.8rem, 13vw, 10.5rem);
+            font-weight: 800;
+            letter-spacing: -3px;
+            line-height: 0.95;
+            color: #ffffff;
+            margin: 0;
+            text-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+        }
+
+        .hero-subtitle-caps {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.75rem, 1.4vw, 1.1rem);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--mint);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        /* 3D Spline Canvas Layer (Full Hardware-Accelerated Viewport) */
+        .spline-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            pointer-events: auto;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #canvas3d {
+            width: 100%;
+            height: 100%;
+            display: block;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: auto;
+            outline: none;
+        }
+
+        /* Fallback avatar only if WebGL is disabled */
+        .robot-fallback-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            width: 100%;
+            max-width: 680px;
+            height: 520px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .robot-fallback-avatar {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.95));
+        }
+
+        /* Static radar circle and biometric fingerprint (Zero Wobble / Completely Static) */
+        .hero-radar {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: clamp(350px, 60vw, 850px);
+            height: clamp(350px, 60vw, 850px);
+            border: 1px solid rgba(88, 214, 141, 0.18);
+            border-radius: 50%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-fingerprint {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: clamp(300px, 50vw, 700px);
+            height: clamp(300px, 50vw, 700px);
+            background: url('/img/idesigner/fingerprint.svg') center center no-repeat;
+            background-size: contain;
+            opacity: 0.06;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-scroll-btn {
+            position: absolute;
+            bottom: 35px;
+            z-index: 15;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid rgba(88, 214, 141, 0.35);
+            background: rgba(8, 22, 15, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .hero-scroll-btn:hover {
+            border-color: var(--mint);
+            background: var(--mint);
+            color: #040c08;
+            transform: translateY(4px);
+        }
+
+        /* Regulatory Badge Strip */
+        .regulatory-strip {
+            padding: 35px 20px;
+            border-bottom: 1px solid rgba(88, 214, 141, 0.12);
+            background: #040c08;
+        }
+
+        .reg-badge-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 22px;
+            background: rgba(13, 33, 23, 0.6);
+            border: 1px solid rgba(88, 214, 141, 0.2);
+            border-radius: 50px;
+            color: #d5eedc;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .reg-badge-item:hover {
+            border-color: var(--mint);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(88, 214, 141, 0.15);
+        }
+
+        /* Services Bento Grid Section */
+        .services-section {
+            padding: 90px 4vw;
+            background: #05100a;
+            position: relative;
+        }
+
+        .services-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 38px 32px;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 22px;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .services-card:hover {
+            border-color: var(--mint);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(88, 214, 141, 0.15);
+        }
+
+        .services-icon-box {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #0a1f14;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(88, 214, 141, 0.3);
+            flex-shrink: 0;
+        }
+
+        .services-icon-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btn-ghost-mint {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--mint);
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: gap 0.25s ease;
+        }
+
+        .services-card:hover .btn-ghost-mint {
+            gap: 14px;
+            color: #ffffff;
+        }
+
+        /* Outline Text Effect */
+        .text-outline-white {
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.45);
+        }
+
+        /* Precedents Section */
+        .precedents-section {
+            padding: 80px 4vw;
+            background: #040c08;
+            border-top: 1px solid rgba(88, 214, 141, 0.1);
+        }
+
+        .precedent-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            padding: 26px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .precedent-card:hover {
+            border-color: var(--mint);
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+        }
+
+        /* Metrics Grid */
+        .metrics-section {
+            padding: 70px 4vw;
+            background: #06140d;
+            border-top: 1px solid rgba(88, 214, 141, 0.12);
+            border-bottom: 1px solid rgba(88, 214, 141, 0.12);
+        }
+
+        .metric-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .metric-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            color: #9bb6a6;
+            font-size: 0.92rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        /* Interactive Analysis Workbench */
+        .workbench-section {
+            padding: 90px 4vw;
+            background: #05100a;
+        }
+
+        .workbench-card {
+            background: #08160f;
+            border: 1px solid rgba(88, 214, 141, 0.28);
+            border-radius: 28px;
+            padding: clamp(24px, 5vw, 48px);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+        }
+
+        .engine-radio-card {
+            border: 1px solid rgba(88, 214, 141, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            background: rgba(13, 33, 23, 0.5);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            height: 100%;
+        }
+
+        .engine-radio-card:hover,
+        .engine-radio-card.active {
+            border-color: var(--mint);
+            background: rgba(88, 214, 141, 0.12);
+            box-shadow: 0 8px 24px rgba(88, 214, 141, 0.15);
+        }
+
+        .form-control-dark {
+            background: #040c08 !important;
+            border: 1px solid rgba(88, 214, 141, 0.25) !important;
+            color: #ffffff !important;
+            border-radius: 14px;
+            padding: 14px 18px;
+            font-size: 0.95rem;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .form-control-dark:focus {
+            border-color: var(--mint) !important;
+            box-shadow: 0 0 15px rgba(88, 214, 141, 0.25) !important;
+            outline: none;
+        }
+
+        .btn-action-primary {
+            background: var(--mint);
+            color: #040c08;
+            font-weight: 700;
+            border-radius: 50px;
+            padding: 14px 32px;
+            border: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-action-primary:hover {
+            background: #6ee7a2;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(88, 214, 141, 0.35);
+            color: #040c08;
+        }
+
+        /* Result Container & Cards */
+        #result-card {
+            background: #081a11;
+            border: 2px solid var(--mint);
+            border-radius: 24px;
+            padding: clamp(24px, 4vw, 40px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(88, 214, 141, 0.18);
+        }
+
+        .verdict-badge {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .article-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: rgba(231, 76, 60, 0.15);
+            border: 1px solid rgba(231, 76, 60, 0.4);
+            border-radius: 20px;
+            color: #ff9d94;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 4px;
+        }
+
+        /* Modals */
+        .modal-content-dark {
+            background: #08160f;
+            border: 1px solid rgba(88, 214, 141, 0.3);
+            border-radius: 24px;
+            color: #ffffff;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Tables */
+        .table-dark-custom {
+            --bs-table-bg: transparent;
+            --bs-table-color: #d6e4dc;
+            border-color: rgba(88, 214, 141, 0.15);
+        }
+
+        .table-dark-custom th {
+            color: var(--mint);
+            font-weight: 600;
+            border-bottom: 1px solid rgba(88, 214, 141, 0.3);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .table-dark-custom td {
+            font-size: 0.88rem;
+            border-bottom: 1px solid rgba(88, 214, 141, 0.08);
+            padding: 12px 10px;
+        }
+    
+        
+        .model-pill-group {
+            display: inline-flex;
+            background: rgba(4, 12, 8, 0.9);
+            border: 1px solid rgba(88, 214, 141, 0.25);
+            border-radius: 50px;
+            padding: 3px;
+            gap: 3px;
+        }
+
+        .model-pill {
+            background: transparent;
+            border: none;
+            color: #b8d9c4;
+            font-size: 0.76rem;
+            font-weight: 600;
+            padding: 4px 11px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            outline: none;
+            white-space: nowrap;
+        }
+
+        .model-pill:hover {
+            color: #ffffff;
+            background: rgba(88, 214, 141, 0.15);
+        }
+
+        .model-pill.active {
+            background: var(--mint);
+            color: #040c08;
+            box-shadow: 0 2px 8px rgba(88, 214, 141, 0.35);
+        }
+
+        /* ========================================================================= */
+        /* POD INTERACTIVO Y DIÁLOGO DEL ROBOT ASISTENTE EN EL HERO */
+        /* ========================================================================= */
+        .hero-robot-pod {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(94vw, 840px);
+            z-index: 30;
+            pointer-events: auto;
+            background: rgba(4, 15, 10, 0.40);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            border: 1px solid rgba(88, 214, 141, 0.35);
+            border-radius: 22px;
+            padding: 14px 20px;
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), 0 0 25px rgba(88, 214, 141, 0.12);
+            transition: all 0.3s ease;
+        }
+
+        .hero-robot-pod:hover {
+            background: rgba(4, 15, 10, 0.52);
+            border-color: var(--mint);
+            box-shadow: 0 20px 55px rgba(0, 0, 0, 0.75), 0 0 35px rgba(88, 214, 141, 0.22);
+        }
+
+        .hero-robot-pod #case-text {
+            background: rgba(4, 14, 9, 0.52) !important;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(88, 214, 141, 0.32) !important;
+            color: #ffffff !important;
+        }
+
+        .hero-robot-pod #case-text:focus {
+            background: rgba(4, 14, 9, 0.75) !important;
+            border-color: var(--mint) !important;
+            box-shadow: 0 0 15px rgba(88, 214, 141, 0.35) !important;
+        }
+
+        .robot-status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--mint);
+            box-shadow: 0 0 10px var(--mint);
+            animation: pulse-dot 1.8s infinite ease-in-out;
+            display: inline-block;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.3); }
+        }
+
+        .robot-bubble-box {
+            background: rgba(8, 25, 16, 0.45);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(88, 214, 141, 0.25);
+            border-radius: 14px;
+            padding: 10px 16px;
+            font-size: 0.9rem;
+            color: #e3f5eb;
+            line-height: 1.5;
+            position: relative;
+        }
+
+        .robot-bubble-box::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 24px;
+            width: 12px;
+            height: 12px;
+            background: rgba(8, 25, 16, 0.45);
+            border-top: 1px solid rgba(88, 214, 141, 0.25);
+            border-left: 1px solid rgba(88, 214, 141, 0.25);
+            transform: rotate(45deg);
+        }
+
+        .robot-quick-pill {
+            background: rgba(8, 25, 16, 0.48);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(88, 214, 141, 0.3);
+            color: #d8f3e0;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            outline: none;
+            user-select: none;
+        }
+
+        .robot-quick-pill:hover {
+            background: rgba(88, 214, 141, 0.22);
+            border-color: var(--mint);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(88, 214, 141, 0.25);
+        }
+
+        .robot-quick-pill.pill-amber {
+            border-color: rgba(243, 156, 18, 0.45);
+            color: #fce4b8;
+        }
+
+        .robot-quick-pill.pill-amber:hover {
+            background: rgba(243, 156, 18, 0.25);
+            border-color: #f39c12;
+            color: #ffffff;
+        }
+
+        /* Banner de acompañamiento en el workbench */
+        #robot-workbench-companion {
+            background: rgba(13, 33, 23, 0.95);
+            border: 1px solid var(--mint);
+            border-radius: 16px;
+            padding: 14px 20px;
+            display: none;
+            animation: fadeInDown 0.4s ease;
+            box-shadow: 0 8px 24px rgba(88, 214, 141, 0.2);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .pulse-highlight {
+            animation: highlightGlow 1.6s ease-out;
+        }
+
+        @keyframes highlightGlow {
+            0% { box-shadow: 0 0 0px var(--mint); border-color: var(--mint) !important; }
+            50% { box-shadow: 0 0 25px rgba(88, 214, 141, 0.7); border-color: var(--mint) !important; }
+            100% { box-shadow: 0 0 0px var(--mint); }
+        }
+
+        /* Banner de entrega del robot en el resultado */
+        .robot-delivery-banner {
+            background: linear-gradient(135deg, rgba(88, 214, 141, 0.15) 0%, rgba(13, 33, 23, 0.9) 100%);
+            border: 1px solid var(--mint);
+            border-radius: 18px;
+            padding: 16px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ========================================================================= -->
+    <!-- NAVEGACIÓN PRINCIPAL (GLASSMORPHIC TECH NAVBAR) -->
+    <!-- ========================================================================= -->
+    <nav class="juridical-nav">
+        <a href="#inicio" class="brand-logo-text">
+            <span>i<i class="fas fa-balance-scale text-success mx-1"></i>JURIS</span>
+            <span class="brand-badge"><i class="fas fa-shield-halved me-1"></i>CPEUM • SCJN</span>
+        </a>
+
+        <div class="nav-links-wrap d-none d-lg-flex">
+            <a href="#inicio" class="nav-link-custom">Inicio</a>
+            <a href="#servicios" class="nav-link-custom">Servicios</a>
+            <a href="#precedentes" class="nav-link-custom">Precedentes</a>
+            <a href="#dictamen" class="nav-link-custom">Dictamen IA</a>
+            <a href="#metricas" class="nav-link-custom">Métricas</a>
+            <a href="javascript:void(0)" onclick="abrirBitacoraModal()" class="nav-link-custom">
+                <i class="fas fa-book-bookmark text-success me-1"></i>Bitácora
+            </a>
+            <a href="#admin-section" id="nav-item-admin" class="nav-link-custom text-warning" style="display: none;">
+                <i class="fas fa-user-shield me-1"></i>Gestión
+            </a>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+            <!-- Aforo de Concurrencia (Límite 30) -->
+            <div class="d-none d-sm-flex align-items-center gap-2 px-3 py-1 rounded-pill" style="background: rgba(88,214,141,0.12); border: 1px solid rgba(88,214,141,0.25);">
+                <i class="fas fa-users" style="color: var(--mint); font-size: 0.8rem;"></i>
+                <span style="font-size: 0.78rem; color: #d2e4d9;">Aforo: <strong id="topbar-aforo" style="color: var(--mint);">1 / 30</strong></span>
+            </div>
+
+            <!-- Menú de Autenticación Dinámico -->
+            <div id="auth-actions">
+                <button class="btn btn-sm btn-outline-success rounded-pill px-3 py-1" onclick="openLoginModal()">
+                    <i class="fas fa-arrow-right-to-bracket me-1"></i> Iniciar Sesión
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================================================= -->
+    <!-- HERO SECTION CON BOT 3D NATIVO (SIN DEFORMACIONES DE FONDO NI LAG) -->
+    <!-- ========================================================================= -->
+    <section id="inicio" class="hero-section">
+        <!-- Concentric circles and biometric watermark (100% Estático) -->
+        <div class="hero-radar"></div>
+        <div class="hero-fingerprint"></div>
+
+        <!-- Typography Behind the Robot (100% Estática, Nítida y Firme) -->
+        <div class="hero-wrapper-bg">
+            <div class="hero-subtitle-caps">DEFENSA CIUDADANA Y DERECHOS HUMANOS FRENTE A LA IA</div>
+            <h1 class="hero-title-massive">iJURIS•IA</h1>
+            <p class="text-white-50 mt-2 mx-auto" style="max-width: 580px; font-size: 0.95rem;">
+                Consulta tus derechos constitucionales o evalúa si un sistema de Inteligencia Artificial cumple con las leyes mexicanas.
+            </p>
+        </div>
+
+        <!-- Canvas Spline 3D de Cobertura Total con Seguimiento Nativo por GPU WebGL -->
+        <div class="spline-wrapper">
+            <canvas id="canvas3d"></canvas>
+        </div>
+
+        <!-- Fallback Estático ÚNICAMENTE si WebGL se encontrara inhabilitado -->
+        <div id="robot-fallback" class="robot-fallback-container">
+            <img src="/img/idesigner/robot_avatar_clean.png" alt="Bot Judicial Interactivo" class="robot-fallback-avatar">
+        </div>
+
+        <!-- Scroll Indicator Arrow -->
+        <a href="#servicios" class="hero-scroll-btn" title="Explorar Soluciones">
+            <i class="fas fa-arrow-down"></i>
+        </a>
+    
+        <!-- Pod Interactivo y Diálogo del Robot Asistente -->
+        <div class="hero-robot-pod" id="hero-robot-pod">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="robot-status-dot"></span>
+                    <strong class="text-success small text-uppercase" style="letter-spacing: 1px;">
+                        <i class="fas fa-robot me-1"></i> Asistente de Derechos Humanos e IA • México
+                    </strong>
+                </div>
+                <span class="badge bg-dark border border-success text-success small px-2 py-1" style="font-size: 0.72rem;">
+                    En línea • Listo para responder
+                </span>
+            </div>
+
+            <div class="robot-bubble-box mb-2" id="hero-robot-bubble">
+                <span id="robot-bubble-text">
+                    ¡Hola! Soy tu asistente de orientación jurídica y derechos humanos frente a la Inteligencia Artificial en México. Hazme una pregunta ciudadana o pídele a nuestro sistema que audite un algoritmo.
+                </span>
+            </div>
+
+            <!-- Pastillas de Preguntas Rápidas Ciudadanas -->
+            <div class="d-flex flex-wrap gap-2 mb-2">
+                <button type="button" class="robot-quick-pill" onclick="preguntarAlRobot('¿Qué son los derechos humanos?')">
+                    <i class="fas fa-hand-holding-heart text-success"></i> ¿Qué son los derechos humanos?
+                </button>
+                <button type="button" class="robot-quick-pill" onclick="preguntarAlRobot('¿Qué dice el artículo 16 de la Constitución sobre mi privacidad y la inteligencia artificial?')">
+                    <i class="fas fa-shield-halved text-success"></i> Art. 16: Privacidad y Datos en IA
+                </button>
+                <button type="button" class="robot-quick-pill" onclick="preguntarAlRobot('¿Qué es la presunción de inocencia y el debido proceso frente a algoritmos de justicia penal?')">
+                    <i class="fas fa-scale-balanced text-success"></i> Presunción de Inocencia
+                </button>
+                <button type="button" class="robot-quick-pill" onclick="preguntarAlRobot('¿Qué pasa si un algoritmo de contratación me discrimina por mi edad o código postal?')">
+                    <i class="fas fa-user-xmark text-success"></i> No Discriminación Laboral
+                </button>
+                <button type="button" class="robot-quick-pill pill-amber" onclick="irASeccionEjemplos()">
+                    <i class="fas fa-folder-open text-warning"></i> Ver 8 Casos Emblemáticos
+                </button>
+            </div>
+
+            <!-- Badge de Caso Precedente Seleccionado (si se elige de los 8 ejemplos) -->
+            <div id="loaded-example-badge" style="display: none;" class="alert alert-success d-flex justify-content-between align-items-center py-1 px-3 mb-2 rounded-3" style="background: rgba(13, 33, 23, 0.95); border: 1px solid var(--mint);">
+                <span class="text-white small">
+                    <i class="fas fa-folder-open text-success me-2"></i><strong>Ejemplo Seleccionado:</strong> <span id="loaded-example-title" class="text-success fw-bold"></span>
+                </span>
+                <button type="button" class="btn btn-sm btn-outline-light py-0 px-2" style="font-size: 0.72rem;" onclick="limpiarCasoSeleccionado(true)">
+                    <i class="fas fa-times me-1"></i>Limpiar
+                </button>
+            </div>
+
+            <!-- Cuadro de Preguntas y Entrada de Texto Principal -->
+            <div class="d-flex gap-2 mb-2">
+                <textarea class="form-control form-control-dark" id="case-text" rows="2" placeholder="Escribe tu duda sobre derechos humanos o describe el caso del algoritmo a evaluar..." style="resize: vertical; font-size: 0.92rem; min-height: 48px;" onkeypress="handleRobotKeyPress(event)"></textarea>
+                <button type="button" class="btn btn-action-primary px-3 d-flex flex-column align-items-center justify-content-center" id="btn-ejecutar" onclick="ejecutarDictamen()" style="min-width: 125px;">
+                    <i class="fas fa-paper-plane mb-1"></i>
+                    <span style="font-size: 0.85rem;">Consultar</span>
+                </button>
+            </div>
+
+            <!-- Menú de Selección de Modelo a Usar (En Pequeño Debajo del Robot) -->
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 pt-2 border-top border-secondary border-opacity-25">
+                <div class="d-flex align-items-center gap-2 flex-wrap">
+                    <span class="text-white-50" style="font-size: 0.76rem;">
+                        <i class="fas fa-microchip text-success me-1"></i>Modelo:
+                    </span>
+                    <div class="model-pill-group" role="group">
+                        <button type="button" class="model-pill active" id="hero-pill-inferencia" onclick="selectEngine('inferencia')">
+                            <i class="fas fa-bolt-lightning text-success me-1"></i>Revisión Rápida
+                        </button>
+                        <button type="button" class="model-pill" id="hero-pill-local" onclick="selectEngine('local')">
+                            <i class="fas fa-microchip text-primary me-1"></i>Ollama RTX 3060
+                        </button>
+                        <button type="button" class="model-pill" id="hero-pill-nube" onclick="selectEngine('nube')">
+                            <i class="fas fa-bolt text-warning me-1"></i>Nube Groq
+                        </button>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-2">
+                    <button type="button" id="hero-test-ollama-btn" class="btn btn-xs btn-outline-light py-1 px-2" style="font-size: 0.72rem; display: none;" onclick="probarOllama(event)">
+                        <i class="fas fa-plug me-1"></i>Probar 11434
+                    </button>
+                    <span class="badge bg-success text-dark" id="hero-active-mode-tag" style="font-size: 0.72rem;">
+                        Revisión Rápida Activa
+                    </span>
+                </div>
+            </div>
+        </div>
+</section>
+
+    <!-- ========================================================================= -->
+    <!-- FRANJA DE ÓRGANOS REGULADORES & MARCO NORMATIVO -->
+    <!-- ========================================================================= -->
+    <div class="regulatory-strip text-center">
+        <div class="container d-flex flex-wrap justify-content-center align-items-center gap-3">
+            <div class="reg-badge-item">
+                <i class="fas fa-landmark text-success"></i>
+                <span>SCJN • Poder Judicial Federal</span>
+            </div>
+            <div class="reg-badge-item">
+                <i class="fas fa-book text-success"></i>
+                <span>CPEUM • Bloque de Constitucionalidad</span>
+            </div>
+            <div class="reg-badge-item">
+                <i class="fas fa-hand-holding-heart text-success"></i>
+                <span>CNDH • Control Convencional</span>
+            </div>
+            <div class="reg-badge-item">
+                <i class="fas fa-fingerprint text-success"></i>
+                <span>INAI • LFPDPPP (Biometría)</span>
+            </div>
+            <div class="reg-badge-item">
+                <i class="fas fa-globe text-success"></i>
+                <span>UNESCO • Ética de la IA</span>
+            </div>
+            <div class="reg-badge-item">
+                <i class="fas fa-scale-balanced text-success"></i>
+                <span>EU AI ACT • Referente de Riesgo</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓN DE SERVICIOS / MODALIDADES (BENTO GRID IDESIGNER) -->
+    <!-- ========================================================================= -->
+    <section id="servicios" class="services-section">
+        <div class="container">
+            <div class="row g-4 align-items-start">
+
+                <!-- Columna Izquierda: Tarjetas de Servicios -->
+                <div class="col-lg-6 d-flex flex-column gap-4">
+
+                    <!-- Tarjeta 1: Revisión Rápida Local -->
+                    <div class="services-card" onclick="selectEngineDirect('inferencia')">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="services-icon-box">
+                                <img src="/img/idesigner/sticker.jpg" alt="Inferencia" class="services-icon-img">
+                            </div>
+                            <h4 class="text-white mb-0" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: 0.5px;">
+                                REVISIÓN RÁPIDA LOCAL
+                            </h4>
+                        </div>
+                        <p class="text-white-50 mb-0" style="font-size: 0.92rem; line-height: 1.6;">
+                            Análisis legal instantáneo basado en la Constitución Mexicana y leyes de datos personales. Responde en milisegundos sin consumir internet ni transmitir tu información al exterior.
+                        </p>
+                        <div class="btn-ghost-mint">
+                            <span>Elegir Revisión Rápida</span>
+                            <i class="fas fa-arrow-right small"></i>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 2: Modelo Local Ollama (RTX 3060) -->
+                    <div class="services-card" onclick="selectEngineDirect('local')">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="services-icon-box">
+                                <img src="/img/idesigner/marketing.jpg" alt="Ollama Local" class="services-icon-img">
+                            </div>
+                            <h4 class="text-white mb-0" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: 0.5px;">
+                                MODELO LOCAL OLLAMA (RTX 3060)
+                            </h4>
+                        </div>
+                        <p class="text-white-50 mb-0" style="font-size: 0.92rem; line-height: 1.6;">
+                            Inteligencia Artificial ejecutándose en la tarjeta gráfica de tu computadora. Tu información nunca sale de tu equipo, garantizando 100% de privacidad y protección de datos.
+                        </p>
+                        <div class="btn-ghost-mint">
+                            <span>Probar Conexión Local</span>
+                            <i class="fas fa-arrow-right small"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Tarjetas de Servicios y Título -->
+                <div class="col-lg-6 d-flex flex-column gap-4">
+
+                    <!-- Cabecera Tipográfica de Servicios -->
+                    <div class="ps-lg-3">
+                        <div class="text-uppercase small fw-bold tracking-widest text-success mb-1">CAPACIDADES FORENSES</div>
+                        <h2 class="display-3 fw-bold text-white mb-0" style="font-family: 'Space Grotesk', sans-serif; letter-spacing: -1.5px;">
+                            SERVICIOS
+                        </h2>
+                    </div>
+
+                    <!-- Tarjeta 3: Nube Groq Ultra Rápida -->
+                    <div class="services-card" onclick="selectEngineDirect('nube')">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="services-icon-box">
+                                <img src="/img/idesigner/laptop.jpg" alt="Nube Groq" class="services-icon-img">
+                            </div>
+                            <h4 class="text-white mb-0" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: 0.5px;">
+                                NUBE GROQ ULTRA RÁPIDA
+                            </h4>
+                        </div>
+                        <p class="text-white-50 mb-0" style="font-size: 0.92rem; line-height: 1.6;">
+                            Análisis legal profundo en 1 segundo con inteligencia artificial de última generación. Revisa la Constitución, criterios de la Suprema Corte y tratados internacionales en tiempo récord.
+                        </p>
+                        <div class="btn-ghost-mint">
+                            <span>Elegir Nube Groq</span>
+                            <i class="fas fa-arrow-right small"></i>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 4: Evaluación Ética y Legal -->
+                    <div class="services-card" onclick="scrollToSection('dictamen')">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="services-icon-box">
+                                <img src="/img/idesigner/applewatch.jpg" alt="Auditoría" class="services-icon-img">
+                            </div>
+                            <h4 class="text-white mb-0" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: 0.5px;">
+                                EVALUACIÓN ÉTICA Y LEGAL
+                            </h4>
+                        </div>
+                        <p class="text-white-50 mb-0" style="font-size: 0.92rem; line-height: 1.6;">
+                            Calificación clara de riesgo (de 0 a 100), recomendaciones prácticas para protegerte y dictamen oficial fundado en la legislación y derechos humanos de México.
+                        </p>
+                        <div class="btn-ghost-mint">
+                            <span>Hacer una Consulta</span>
+                            <i class="fas fa-arrow-right small"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PRECEDENTES JURÍDICOS PRECARGADOS (CASOS EJEMPLO) -->
+    <!-- ========================================================================= -->
+    <section id="precedentes" class="precedents-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge bg-success text-dark px-3 py-1 mb-2 fw-semibold">JURISPRUDENCIA & CASOS EMBLEMÁTICOS</span>
+                <h2 class="display-5 fw-bold text-white mb-2" style="font-family: 'Space Grotesk', sans-serif;">
+                    Precedentes Constitucionales de Prueba
+                </h2>
+                <p class="text-white-50 mx-auto mb-0" style="max-width: 650px;">
+                    Selecciona cualquiera de estos 8 casos fácticos para cargarlos de inmediato en la mesa forense de auditoría.
+                </p>
+            </div>
+
+            <div class="row g-4" id="cases-grid">
+                <!-- Se cargan dinámicamente vía API /api/casos -->
+                <div class="col-12 text-center text-white-50 py-5">
+                    <span class="spinner-border spinner-border-sm me-2 text-success"></span>Cargando jurisprudencia precargada...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓN DE MÉTRICAS & AFECTACIÓN CONSTITUCIONAL -->
+    <!-- ========================================================================= -->
+    <section id="metricas" class="metrics-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <div class="metric-item">
+                        <div class="metric-number text-success" id="metric-auditorias">18</div>
+                        <div class="metric-label">Auditorías Emitidas</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="metric-item">
+                        <div class="metric-number text-danger" id="metric-vulneraciones">12</div>
+                        <div class="metric-label">Vulneraciones Detectadas</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="metric-item">
+                        <div class="metric-number text-info" id="metric-positivos">6</div>
+                        <div class="metric-label">Prácticas Éticas Validadas</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="metric-item">
+                        <div class="metric-number text-warning" id="metric-aforo">1 / 30</div>
+                        <div class="metric-label">Aforo Concurrente</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- MESA FORENSE INTERACTIVA DE DICTAMEN JUDICIAL (WORKBENCH) -->
+    <!-- ========================================================================= -->
+    <section id="dictamen" class="workbench-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge bg-success text-dark px-3 py-1 mb-2 fw-semibold">ASESORÍA Y AUDITORÍA LEGAL EN MÉXICO</span>
+                <h2 class="display-5 fw-bold text-white mb-2" style="font-family: 'Space Grotesk', sans-serif;">
+                    Mesa de Trabajo y Consulta Legal
+                </h2>
+                <p class="text-white-50 mx-auto mb-0" style="max-width: 680px;">
+                    Escribe tu pregunta sobre derechos humanos o describe el caso del sistema de IA para evaluarlo con las leyes mexicanas y recibir respuesta inmediata.
+                </p>
+            </div>
+
+            <!-- Placeholder previo a emitir la resolución -->
+            <div id="dictamen-empty-placeholder" class="text-center p-5 rounded-4 mb-4" style="background: rgba(8, 22, 15, 0.75); border: 1px dashed rgba(88,214,141,0.3);">
+                <div style="font-size: 3rem;" class="mb-3">🤖</div>
+                <h4 class="text-white fw-bold mb-2">Resolución y Dictamen Legal en Espera</h4>
+                <p class="text-white-50 mx-auto mb-3" style="max-width: 550px; font-size: 0.95rem;">
+                    Escribe tu pregunta ciudadana o describe un caso en el cuadro del Asistente (arriba en la cabecera debajo del robot), o selecciona uno de los casos emblemáticos de prueba para ver el dictamen aquí.
+                </p>
+                <a href="#inicio" class="btn btn-sm btn-outline-success rounded-pill px-4">
+                    <i class="fas fa-arrow-up me-1"></i> Ir al Cuadro de Consulta del Robot
+                </a>
+            </div>
+
+            <!-- Contenedor del Dictamen Judicial -->
+            <div id="result-container" class="mt-5" style="display: none;">
+                <div id="result-card">
+                    <!-- Banner de Entrega del Asistente Virtual -->
+                    <div id="robot-result-delivery" class="robot-delivery-banner d-flex align-items-center gap-3 mb-4">
+                        <div style="font-size: 2.2rem;">🤖</div>
+                        <div class="flex-grow-1">
+                            <div class="d-flex align-items-center gap-2">
+                                <strong class="text-white" style="font-size: 1.05rem;">Asistente Virtual de Derechos Humanos e IA</strong>
+                                <span class="badge bg-success text-dark" id="robot-result-tag" style="font-size: 0.72rem;">Resolución Ciudadana</span>
+                            </div>
+                            <p class="text-white-50 small mb-0 mt-1" id="robot-result-speech">
+                                He preparado tu respuesta y fundamentación legal en lenguaje accesible conforme a la Constitución Mexicana (CPEUM), criterios de la Suprema Corte (SCJN) y principios de ética en IA.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Cabecera del Dictamen -->
+                    <div class="d-flex flex-wrap justify-content-between align-items-start border-bottom border-secondary pb-4 mb-4">
+                        <div>
+                            <span class="text-success text-uppercase fw-bold small tracking-wide">
+                                <i class="fas fa-certificate me-1"></i>Dictamen Forense de Constitucionalidad
+                            </span>
+                            <h3 class="text-white fw-bold mt-1 mb-1" id="result-expediente" style="font-family: 'Space Grotesk', sans-serif;">
+                                EXPEDIENTE AUD-2026-0001
+                            </h3>
+                            <!-- TÍTULO DEL CASO DETECTADO O EVALUADO -->
+                            <h5 class="fw-bold mb-2" id="result-case-title" style="color: var(--mint) !important; font-size: 1.15rem;">
+                                <i class="fas fa-gavel me-2"></i><span id="result-case-title-text">Caso Forense Particular</span>
+                            </h5>
+                            <div class="text-white-50 small" id="result-meta">
+                                Fecha: -- • Motor: Inferencia Heurística
+                            </div>
+                        </div>
+
+                        <div class="text-end mt-3 mt-sm-0">
+                            <div class="verdict-badge" id="result-badge-veredicto">
+                                VIOLACIÓN CONSTITUCIONAL GRAVE
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resumen y Diagnóstico Fáctico -->
+                    <div class="row g-4 mb-4">
+                        <div class="col-lg-8">
+                            <h6 class="text-white fw-bold mb-2"><i class="fas fa-clipboard-list text-success me-2"></i>Explicación Ciudadana y Diagnóstico del Caso</h6>
+                            <p class="text-white-50" id="result-resumen" style="line-height: 1.7; font-size: 0.95rem;">--</p>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="p-3 rounded-3" style="background: rgba(8, 22, 15, 0.8); border: 1px solid var(--border-card);">
+                                <h6 class="text-white fw-bold mb-2"><i class="fas fa-shield-halved text-warning me-2"></i>Nivel de Riesgo / Protección</h6>
+                                <h4 class="text-warning fw-bold mb-1" id="result-nivel-riesgo">ALTO RIESGO</h4>
+                                <div id="result-riesgo-desc">
+                                    <p class="text-white-50 small mb-0">Calificación de riesgo según doctrina constitucional y EU AI Act.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Artículos Constitucionales y Garantías Afectadas -->
+                    <div class="mb-4">
+                        <h6 class="text-white fw-bold mb-2"><i class="fas fa-gavel text-success me-2"></i>Garantías y Artículos Constitucionales (CPEUM)</h6>
+                        <div id="result-articulos" class="d-flex flex-wrap">
+                            <!-- Se inyectan pills dinámicamente -->
+                        </div>
+                    </div>
+
+                    <!-- Fundamentación Jurídica y Criterios SCJN -->
+                    <div class="mb-4">
+                        <h6 class="text-white fw-bold mb-2"><i class="fas fa-book-bookmark text-success me-2"></i>Fundamentación Legal y Ejemplos Prácticos</h6>
+                        <div class="p-3 rounded-3 text-white-50" id="result-fundamentacion" style="background: rgba(8, 22, 15, 0.6); border: 1px solid rgba(88,214,141,0.15); line-height: 1.7; font-size: 0.92rem;">
+                            --
+                        </div>
+                    </div>
+
+                    <!-- Recomendaciones de Remediación Técnica y Deontológica -->
+                    <div class="mb-4">
+                        <h6 class="text-white fw-bold mb-2"><i class="fas fa-list-check text-success me-2"></i>Consejos y Acciones para Defender tus Derechos</h6>
+                        <ul class="text-white-50 ps-3 mb-0" id="result-recomendaciones" style="line-height: 1.8;">
+                            <!-- Items dinámicos -->
+                        </ul>
+                    </div>
+
+                    <!-- Acciones del Dictamen -->
+                    <div class="d-flex flex-wrap justify-content-end gap-3 pt-3 border-top border-secondary no-print">
+                        <button class="btn btn-outline-success rounded-pill px-4" onclick="abrirBitacoraModal()">
+                            <i class="fas fa-book-bookmark me-2"></i>Ver en Bitácora
+                        </button>
+                        <button class="btn btn-outline-light rounded-pill px-4" onclick="copiarDictamen()">
+                            <i class="fas fa-copy me-2"></i>Copiar Dictamen
+                        </button>
+                        <button class="btn btn-action-primary px-4" onclick="window.print()">
+                            <i class="fas fa-print me-2"></i>Imprimir Certificado Oficial
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PANEL DE ADMINISTRACIÓN (SOLO VISIBLE PARA ROL ADMIN) -->
+    <!-- ========================================================================= -->
+    <section id="admin-section" class="py-5" style="display: none; background: #040d08; border-top: 1px solid rgba(88,214,141,0.2);">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <span class="badge bg-warning text-dark mb-1"><i class="fas fa-lock me-1"></i>Acceso Restringido</span>
+                    <h3 class="text-white fw-bold mb-0" style="font-family: 'Space Grotesk', sans-serif;">Gestión Jurisdiccional de Usuarios</h3>
+                </div>
+                <button class="btn btn-sm btn-outline-warning" onclick="cargarUsuariosAdmin()">
+                    <i class="fas fa-rotate me-1"></i>Actualizar
+                </button>
+            </div>
+
+            <div class="row g-4">
+                <!-- Tabla de Usuarios Registrados -->
+                <div class="col-lg-8">
+                    <div class="p-4 rounded-4" style="background: #08160f; border: 1px solid var(--border-card);">
+                        <h5 class="text-white fw-bold mb-3">Usuarios en Base de Datos</h5>
+                        <div class="table-responsive">
+                            <table class="table table-dark-custom align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Usuario</th>
+                                        <th>Nombre</th>
+                                        <th>Correo</th>
+                                        <th>Rol</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-users-tbody">
+                                    <!-- Inyectado dinámicamente -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario de Creación de Usuario -->
+                <div class="col-lg-4">
+                    <div class="p-4 rounded-4" style="background: #08160f; border: 1px solid var(--border-card);">
+                        <h5 class="text-white fw-bold mb-3">Registrar Nuevo Perfil</h5>
+                        <form id="admin-new-user-form" onsubmit="crearUsuarioAdmin(event)">
+                            <div class="mb-3">
+                                <label class="text-white-50 small mb-1">Usuario</label>
+                                <input type="text" class="form-control form-control-dark" id="adm-username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="text-white-50 small mb-1">Nombre Completo</label>
+                                <input type="text" class="form-control form-control-dark" id="adm-fullname" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="text-white-50 small mb-1">Correo Electrónico</label>
+                                <input type="email" class="form-control form-control-dark" id="adm-email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="text-white-50 small mb-1">Contraseña</label>
+                                <input type="password" class="form-control form-control-dark" id="adm-password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="text-white-50 small mb-1">Rol</label>
+                                <select class="form-control form-control-dark" id="adm-role">
+                                    <option value="user">Usuario Registrado</option>
+                                    <option value="admin">Administrador</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-action-primary w-100 py-2">
+                                <i class="fas fa-plus me-1"></i>Crear Usuario
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- MODAL DE BITÁCORA FORENSE DE EXPEDIENTES (HISTORIAL EN SQLITE) -->
+    <!-- ========================================================================= -->
+    <div class="modal fade" id="bitacoraModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content modal-content-dark p-3">
+                <div class="modal-header border-0 pb-2">
+                    <div>
+                        <span class="badge bg-success text-dark mb-1"><i class="fas fa-database me-1"></i>Trazabilidad Forense</span>
+                        <h4 class="modal-title text-white fw-bold mb-0" style="font-family: 'Space Grotesk', sans-serif;">
+                            Bitácora de Resoluciones y Dictámenes
+                        </h4>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-2">
+                    <p class="text-white-50 small mb-3">
+                        Registro cronológico de expedientes analizados. Haz clic en <strong>Ver Dictamen</strong> para recargar cualquier resolución en el visor pericial.
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table table-dark-custom align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Exp.</th>
+                                    <th>Fecha</th>
+                                    <th>Título / Hechos Evaluados</th>
+                                    <th>Veredicto</th>
+                                    <th>Riesgo EU</th>
+                                    <th>Motor</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bitacora-tbody">
+                                <tr><td colspan="7" class="text-center text-white-50 py-4"><span class="spinner-border spinner-border-sm me-2"></span>Cargando bitácora...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- MODAL DE AUTENTICACIÓN (LOGIN / REGISTRO / USUARIO LOCAL) -->
+    <!-- ========================================================================= -->
+    <div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-dark p-3">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title text-white fw-bold" id="authModalTitle" style="font-family: 'Space Grotesk', sans-serif;">
+                        Acceso Jurisdiccional
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-3">
+                    <!-- Pestañas de Acceso -->
+                    <ul class="nav nav-pills nav-fill mb-3" id="auth-tab">
+                        <li class="nav-item">
+                            <button class="nav-link active py-2 text-white" id="tab-login-btn" onclick="switchAuthTab('login')">
+                                Iniciar Sesión
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link py-2 text-white" id="tab-register-btn" onclick="switchAuthTab('register')">
+                                Registrarse
+                            </button>
+                        </li>
+                    </ul>
+
+                    <!-- Formulario de Login -->
+                    <form id="form-email-login" onsubmit="doEmailLogin(event)">
+                        <div class="mb-3">
+                            <label class="text-white-50 small mb-1">Correo Electrónico</label>
+                            <input type="email" class="form-control form-control-dark" id="login-email" placeholder="usuario@correo.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="text-white-50 small mb-1">Contraseña</label>
+                            <input type="password" class="form-control form-control-dark" id="login-password" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-action-primary w-100 py-2 mb-3">
+                            <i class="fas fa-sign-in-alt me-2"></i>Entrar al Tribunal
+                        </button>
+                    </form>
+
+                    <!-- Formulario de Registro -->
+                    <form id="form-email-register" onsubmit="doEmailRegister(event)" style="display: none;">
+                        <div class="mb-3">
+                            <label class="text-white-50 small mb-1">Nombre Completo</label>
+                            <input type="text" class="form-control form-control-dark" id="reg-fullname" placeholder="Lic. María Santos" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="text-white-50 small mb-1">Correo Electrónico</label>
+                            <input type="email" class="form-control form-control-dark" id="reg-email" placeholder="tu_correo@ejemplo.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="text-white-50 small mb-1">Contraseña</label>
+                            <input type="password" class="form-control form-control-dark" id="reg-password" placeholder="Mínimo 6 caracteres" required>
+                        </div>
+                        <button type="submit" class="btn btn-action-primary w-100 py-2 mb-3">
+                            <i class="fas fa-user-check me-2"></i>Crear Cuenta Gratuita
+                        </button>
+                    </form>
+
+                    <div class="text-center my-3">
+                        <span class="text-white-50 small">───── O acceso temporal ─────</span>
+                    </div>
+
+                    <!-- Botón de Usuario Local Efímero -->
+                    <button type="button" class="btn btn-outline-success w-100 py-2 rounded-3" onclick="doGuestLogin()">
+                        <i class="fas fa-user-secret me-2"></i>Acceder como Usuario Local (Sesión Efímera)
+                    </button>
+                    <p class="text-white-50 small text-center mt-2 mb-0" style="font-size: 0.76rem;">
+                        <i class="fas fa-circle-exclamation text-warning me-1"></i>Los datos de sesión y consultas se purgan automáticamente al cerrar sesión.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Spline 3D Runtime Module (Seguimiento de cursor acelerado por hardware a 60/120 FPS) -->
+    <script type="module">
+        import { Application } from 'https://unpkg.com/@splinetool/runtime@1.9.28/build/runtime.js';
+        const canvas = document.getElementById('canvas3d');
+        if (canvas) {
+            const app = new Application(canvas);
+            app.load('https://prod.spline.design/fP0LH65i8bXQDQjZ/scene.splinecode').then(() => {
+                canvas.style.opacity = '1';
+                canvas.style.pointerEvents = 'auto';
+            }).catch(e => {
+                console.warn('Spline 3D no disponible, activando respaldo estático:', e);
+                const fallback = document.getElementById('robot-fallback');
+                if (fallback) fallback.style.display = 'flex';
+            });
+        }
+    </script>
+
+    <!-- ========================================================================= -->
+    <!-- LOGICA FRONTEND JAVASCRIPT DEL TRIBUNAL IA (CONTROL CONSTITUCIONAL) -->
+    <!-- ========================================================================= -->
+    <script>
+        let CURRENT_ENGINE = 'inferencia'; // 'inferencia', 'local', 'nube'
+        let AUTH_TOKEN = localStorage.getItem('juridical_token') || null;
+        let CURRENT_USER = JSON.parse(localStorage.getItem('juridical_user') || 'null');
+        let CURRENT_LOADED_CASE = null;
+        let authModalInstance = null;
+        let bitacoraModalInstance = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const modalEl = document.getElementById('authModal');
+            if (modalEl) {
+                authModalInstance = new bootstrap.Modal(modalEl);
+            }
+
+            const bitModalEl = document.getElementById('bitacoraModal');
+            if (bitModalEl) {
+                bitacoraModalInstance = new bootstrap.Modal(bitModalEl);
+            }
+
+            // Contador de caracteres en textarea
+            const txt = document.getElementById('case-text');
+            const cnt = document.getElementById('char-counter');
+            if (txt && cnt) {
+                txt.addEventListener('input', () => {
+                    cnt.innerText = `${txt.value.length} caracteres`;
+                });
+            }
+
+            // Inicializar estado del usuario
+            actualizarEstadoUsuario();
+
+            // Cargar Casos Predefinidos y Estadísticas
+            cargarCasos();
+            cargarEstadisticas();
+            verificarEstadoOllamaSilencioso();
+
+            // Polling de estadísticas de aforo cada 25 segundos
+            setInterval(cargarEstadisticas, 25000);
+        });
+
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openLoginModal() {
+            if (authModalInstance) authModalInstance.show();
+        }
+
+        function abrirBitacoraModal() {
+            if (!bitacoraModalInstance) {
+                const el = document.getElementById('bitacoraModal');
+                if (el) bitacoraModalInstance = new bootstrap.Modal(el);
+            }
+            if (bitacoraModalInstance) {
+                cargarBitacora();
+                bitacoraModalInstance.show();
+            }
+        }
+
+        function switchAuthTab(tab) {
+            const loginForm = document.getElementById('form-email-login');
+            const regForm = document.getElementById('form-email-register');
+            const loginBtn = document.getElementById('tab-login-btn');
+            const regBtn = document.getElementById('tab-register-btn');
+
+            if (tab === 'login') {
+                loginForm.style.display = 'block';
+                regForm.style.display = 'none';
+                loginBtn.classList.add('active');
+                regBtn.classList.remove('active');
+            } else {
+                loginForm.style.display = 'none';
+                regForm.style.display = 'block';
+                loginBtn.classList.remove('active');
+                regBtn.classList.add('active');
+            }
+        }
+
+        // Selección de motor desde las tarjetas de servicios
+        function selectEngineDirect(engine) {
+            selectEngine(engine);
+            const bubble = document.getElementById('robot-bubble-text');
+            if (bubble) {
+                let name = 'Revisión Rápida';
+                if (engine === 'local') name = 'Ollama Local (RTX 3060)';
+                if (engine === 'nube') name = 'Nube Groq Ultra Rápida';
+                bubble.innerText = `🤖 He activado el motor: ${name}. Escribe tu pregunta o selecciona un caso en este cuadro.`;
+            }
+            scrollToSection('inicio');
+        }
+
+        function selectEngine(engine) {
+            CURRENT_ENGINE = engine;
+
+            // Actualizar pastillas del selector de modelo en el cuadro del Robot
+            const pills = ['inferencia', 'local', 'nube'];
+            pills.forEach(p => {
+                const el = document.getElementById(`hero-pill-${p}`);
+                if (el) {
+                    if (p === engine) {
+                        el.classList.add('active');
+                    } else {
+                        el.classList.remove('active');
+                    }
+                }
+            });
+
+            // Botón de prueba de Ollama
+            const testBtn = document.getElementById('hero-test-ollama-btn');
+            if (testBtn) {
+                testBtn.style.display = (engine === 'local') ? 'inline-block' : 'none';
+            }
+
+            // Tag indicador de modo en el Hero
+            const tag = document.getElementById('hero-active-mode-tag');
+            if (tag) {
+                if (engine === 'inferencia') {
+                    tag.className = 'badge bg-success text-dark';
+                    tag.innerText = 'Revisión Rápida Activa';
+                } else if (engine === 'local') {
+                    tag.className = 'badge bg-primary text-white';
+                    tag.innerText = 'Ollama RTX 3060 Activo';
+                } else if (engine === 'nube') {
+                    tag.className = 'badge bg-warning text-dark';
+                    tag.innerText = 'Nube Groq Activa (~1s)';
+                }
+            }
+        }
+
+        // Verificación silenciosa del estado de Ollama al cargar la página
+        async function verificarEstadoOllamaSilencioso() {
+            const badge = document.getElementById('badge-ollama-status');
+            try {
+                const res = await fetch('/api/health-ollama', { method: 'GET', signal: AbortSignal.timeout(4000) });
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.online && badge) {
+                        badge.className = 'badge bg-success text-dark';
+                        badge.innerText = 'Conectado (RTX 3060)';
+                    }
+                }
+            } catch (e) {
+                // Silencioso
+            }
+        }
+
+        // Probar conexión con Ollama a través del backend del tribunal
+        async function probarOllama(e) {
+            if (e) e.stopPropagation();
+            const badge = document.getElementById('badge-ollama-status');
+            if (badge) {
+                badge.className = 'badge bg-warning text-dark';
+                badge.innerText = 'Probando...';
+            }
+
+            try {
+                const res = await fetch('/api/health-ollama', { method: 'GET', signal: AbortSignal.timeout(6000) });
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.online) {
+                        const models = (data.models || []).join(', ') || 'qwen2.5:7b';
+                        if (badge) {
+                            badge.className = 'badge bg-success text-dark';
+                            badge.innerText = 'Conectado (RTX 3060)';
+                        }
+                        alert(`✅ Conexión con Ollama exitosa.
+Servidor local activo en GPU RTX 3060.
+Modelos GGUF detectados: ${models}`);
+                        return;
+                    }
+                }
+                throw new Error('Ollama offline');
+            } catch (err) {
+                if (badge) {
+                    badge.className = 'badge bg-danger text-white';
+                    badge.innerText = 'Sin conexión';
+                }
+                alert(`⚠️ No se detectó Ollama en el servidor.\nAsegúrate de tener Ollama activo ejecutando "ollama serve" en tu terminal.`);
+            }
+        }
+
+        // Autenticación: Correo + Contraseña
+        async function doEmailLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            try {
+                const res = await fetch('/api/auth/email-login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await res.json();
+                if (!res.ok) {
+                    throw new Error(data.detail || 'Credenciales inválidas.');
+                }
+
+                // Guardar token y usuario
+                AUTH_TOKEN = data.token;
+                CURRENT_USER = data.user;
+                localStorage.setItem('juridical_token', AUTH_TOKEN);
+                localStorage.setItem('juridical_user', JSON.stringify(CURRENT_USER));
+
+                if (authModalInstance) authModalInstance.hide();
+                actualizarEstadoUsuario();
+                alert(`✅ Bienvenido(a) al Tribunal, ${CURRENT_USER.full_name}`);
+            } catch (err) {
+                alert(`Error al iniciar sesión: ${err.message}`);
+            }
+        }
+
+        // Autenticación: Registro por Correo
+        async function doEmailRegister(e) {
+            e.preventDefault();
+            const full_name = document.getElementById('reg-fullname').value;
+            const email = document.getElementById('reg-email').value;
+            const password = document.getElementById('reg-password').value;
+
+            try {
+                const res = await fetch('/api/auth/email-register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ full_name, email, password })
+                });
+
+                const data = await res.json();
+                if (!res.ok) {
+                    throw new Error(data.detail || 'Error al registrar.');
+                }
+
+                // Auto login con el token devuelto
+                AUTH_TOKEN = data.token;
+                CURRENT_USER = data.user;
+                localStorage.setItem('juridical_token', AUTH_TOKEN);
+                localStorage.setItem('juridical_user', JSON.stringify(CURRENT_USER));
+
+                if (authModalInstance) authModalInstance.hide();
+                actualizarEstadoUsuario();
+                alert(`✅ Cuenta creada exitosamente. Bienvenido(a), ${CURRENT_USER.full_name}`);
+            } catch (err) {
+                alert(`Error en registro: ${err.message}`);
+            }
+        }
+
+        // Autenticación: Usuario Local Efímero
+        async function doGuestLogin() {
+            try {
+                const res = await fetch('/api/auth/local-guest', { method: 'POST' });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.detail || 'No se pudo crear la sesión efímera');
+
+                AUTH_TOKEN = data.token;
+                CURRENT_USER = data.user;
+                localStorage.setItem('juridical_token', AUTH_TOKEN);
+                localStorage.setItem('juridical_user', JSON.stringify(CURRENT_USER));
+
+                if (authModalInstance) authModalInstance.hide();
+                actualizarEstadoUsuario();
+                alert(`🔒 Sesión de Usuario Local activada.\nTodos los datos y consultas se eliminarán automáticamente al salir.`);
+            } catch (err) {
+                alert(`Error: ${err.message}`);
+            }
+        }
+
+        // Cerrar Sesión
+        async function doLogout() {
+            if (AUTH_TOKEN) {
+                try {
+                    await fetch('/api/auth/logout', {
+                        method: 'POST',
+                        headers: { 'Authorization': `Bearer ${AUTH_TOKEN}` }
+                    });
+                } catch (e) {
+                    console.error('Error logging out:', e);
+                }
+            }
+
+            AUTH_TOKEN = null;
+            CURRENT_USER = null;
+            localStorage.removeItem('juridical_token');
+            localStorage.removeItem('juridical_user');
+            actualizarEstadoUsuario();
+            alert('Sesión finalizada. Los datos locales han sido purgados.');
+        }
+
+        // Actualizar barra superior con estado del usuario
+        function actualizarEstadoUsuario() {
+            const authWrap = document.getElementById('auth-actions');
+            const adminNav = document.getElementById('nav-item-admin');
+            const adminSection = document.getElementById('admin-section');
+
+            if (!CURRENT_USER) {
+                authWrap.innerHTML = `
+                    <button class="btn btn-sm btn-outline-success rounded-pill px-3 py-1" onclick="openLoginModal()">
+                        <i class="fas fa-arrow-right-to-bracket me-1"></i> Iniciar Sesión
+                    </button>
+                `;
+                if (adminNav) adminNav.style.display = 'none';
+                if (adminSection) adminSection.style.display = 'none';
+                return;
+            }
+
+            // Si es ADMIN, habilitar pestaña y panel de administración
+            const isAdmin = (CURRENT_USER.role === 'admin');
+            if (adminNav) adminNav.style.display = isAdmin ? 'inline-block' : 'none';
+            if (adminSection) adminSection.style.display = isAdmin ? 'block' : 'none';
+
+            if (isAdmin) {
+                cargarUsuariosAdmin();
+            }
+
+            let badgeHtml = '';
+            if (CURRENT_USER.is_guest) {
+                badgeHtml = `<span class="badge bg-secondary text-white ms-1" style="font-size: 0.7rem;"><i class="fas fa-user-secret me-1"></i>Local</span>`;
+            } else if (isAdmin) {
+                badgeHtml = `<span class="badge bg-warning text-dark ms-1" style="font-size: 0.7rem;"><i class="fas fa-user-shield me-1"></i>Admin</span>`;
+            } else {
+                badgeHtml = `<span class="badge bg-success text-dark ms-1" style="font-size: 0.7rem;"><i class="fas fa-check-circle me-1"></i>Registrado</span>`;
+            }
+
+            authWrap.innerHTML = `
+                <div class="d-flex align-items-center gap-2">
+                    <span class="text-white small fw-bold">
+                        <i class="fas fa-user-circle text-success me-1"></i>${CURRENT_USER.full_name} ${badgeHtml}
+                    </span>
+                    <button class="btn btn-sm btn-outline-danger rounded-pill px-2 py-1" onclick="doLogout()" title="Cerrar Sesión">
+                        <i class="fas fa-arrow-right-from-bracket"></i>
+                    </button>
+                </div>
+            `;
+        }
+
+        // Cargar Casos Predefinidos desde la API
+        async function cargarCasos() {
+            try {
+                const res = await fetch('/api/casos');
+                if (!res.ok) return;
+                const casos = await res.json();
+                const grid = document.getElementById('cases-grid');
+                if (!grid) return;
+
+                grid.innerHTML = '';
+                casos.forEach(c => {
+                    const col = document.createElement('div');
+                    col.className = 'col-md-6 col-lg-3';
+                    col.innerHTML = `
+                        <div class="precedent-card" onclick="cargarEnAudiencia('${c.id}')">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-success text-dark" style="font-size: 0.72rem;">${c.categoria}</span>
+                                    <span class="text-white-50 small"><i class="fas fa-scale-balanced me-1"></i>${c.articulos || 'CPEUM'}</span>
+                                </div>
+                                <h5 class="text-white fw-bold mb-2" style="font-size: 1.05rem;">${c.titulo}</h5>
+                                <p class="text-white-50 small mb-3" style="line-height: 1.6;">${c.descripcion}</p>
+                            </div>
+                            <div class="btn-ghost-mint">
+                                <span>Cargar en Audiencia</span>
+                                <i class="fas fa-arrow-right small"></i>
+                            </div>
+                        </div>
+                    `;
+                    grid.appendChild(col);
+                });
+            } catch (e) {
+                console.error('Error cargando casos:', e);
+            }
+        }
+
+        // Cargar caso seleccionado en el formulario y emitir dictamen
+        async function cargarEnAudiencia(casoId) {
+            try {
+                const res = await fetch('/api/casos');
+                const casos = await res.json();
+                const caso = casos.find(c => c.id === casoId);
+                if (caso) {
+                    CURRENT_LOADED_CASE = caso;
+                    const txt = document.getElementById('case-text');
+                    if (txt) {
+                        txt.value = caso.descripcion || caso.hechos || '';
+                        txt.dispatchEvent(new Event('input'));
+                        txt.classList.add('pulse-highlight');
+                        setTimeout(() => txt.classList.remove('pulse-highlight'), 1800);
+                    }
+
+                    const badge = document.getElementById('loaded-example-badge');
+                    const badgeTitle = document.getElementById('loaded-example-title');
+                    if (badge && badgeTitle) {
+                        badgeTitle.innerText = caso.titulo;
+                        badge.style.display = 'flex';
+                    }
+
+                    const bubble = document.getElementById('robot-bubble-text');
+                    if (bubble) {
+                        bubble.innerText = `🤖 Caso cargado: «${caso.titulo}». Emitiendo dictamen constitucional...`;
+                    }
+
+                    scrollToSection('dictamen');
+                    setTimeout(() => {
+                        ejecutarDictamen();
+                    }, 350);
+                }
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        function limpiarCasoSeleccionado(borrarTexto = false) {
+            CURRENT_LOADED_CASE = null;
+            const badge = document.getElementById('loaded-example-badge');
+            if (badge) badge.style.display = 'none';
+            if (borrarTexto) {
+                const txt = document.getElementById('case-text');
+                if (txt) {
+                    txt.value = '';
+                    txt.dispatchEvent(new Event('input'));
+                }
+            }
+        }
+
+        
+        // =========================================================================
+        // FUNCIONES DE INTERACCIÓN DEL ASISTENTE ROBOT HERO
+        // =========================================================================
+        function preguntarAlRobot(texto) {
+            const bubble = document.getElementById('robot-bubble-text');
+            if (bubble) {
+                bubble.innerText = `🤖 Analizando consulta: «${texto.slice(0, 50)}...» Conforme a la Constitución y leyes de México...`;
+            }
+
+            // No borrar texto
+            limpiarCasoSeleccionado(false);
+
+            const txt = document.getElementById('case-text');
+            if (txt) {
+                txt.value = texto;
+                txt.dispatchEvent(new Event('input'));
+                txt.classList.add('pulse-highlight');
+                setTimeout(() => txt.classList.remove('pulse-highlight'), 1800);
+            }
+
+            // Ejecutar dictamen pasando directamente el texto para que jamás esté vacío
+            ejecutarDictamen(texto);
+        }
+
+        function enviarDesdeRobotInput() {
+            const input = document.getElementById('hero-robot-input');
+            if (!input) return;
+            const val = input.value.trim();
+            if (!val) {
+                alert('Por favor escribe tu pregunta (ej. ¿Qué son los derechos humanos?) o describe un caso.');
+                input.focus();
+                return;
+            }
+            preguntarAlRobot(val);
+            input.value = '';
+        }
+
+        function handleRobotKeyPress(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                ejecutarDictamen();
+            }
+        }
+
+        function irASeccionEjemplos() {
+            const bubble = document.getElementById('robot-bubble-text');
+            if (bubble) {
+                bubble.innerText = '🤖 Te muestro los 8 casos emblemáticos de prueba precargados para auditoría...';
+            }
+            scrollToSection('precedentes');
+        }
+
+        // Ejecutar Dictamen Forense
+        async function ejecutarDictamen(textoDirecto) {
+            const txtEl = document.getElementById('case-text');
+            const hechos = (typeof textoDirecto === 'string' && textoDirecto.trim())
+                ? textoDirecto.trim()
+                : (txtEl ? txtEl.value.trim() : '');
+
+            if (!hechos) {
+                alert('Por favor redacta o carga los hechos del caso a evaluar.');
+                return;
+            }
+
+            const btn = document.getElementById('btn-ejecutar');
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            const bubble = document.getElementById('robot-bubble-text');
+            if (bubble) {
+                bubble.innerText = '🤖 Deliberando conforme a la Constitución Mexicana y leyes de IA...';
+            }
+            btn.innerHTML = `<span class="spinner-border spinner-border-sm mb-1" role="status"></span><span style="font-size: 0.76rem;">Consultando...</span>`;
+
+            try {
+                const payload = {
+                    caso_hechos: hechos,
+                    modo: CURRENT_ENGINE,
+                    titulo: CURRENT_LOADED_CASE ? CURRENT_LOADED_CASE.titulo : null
+                };
+
+                const headers = { 'Content-Type': 'application/json' };
+                if (AUTH_TOKEN) {
+                    headers['Authorization'] = `Bearer ${AUTH_TOKEN}`;
+                }
+
+                // Timeout de 40 segundos para máxima protección contra bloqueos
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 40000);
+
+                const res = await fetch('/api/analizar', {
+                    method: 'POST',
+                    headers: headers,
+                    body: JSON.stringify(payload),
+                    signal: controller.signal
+                });
+
+                clearTimeout(timeoutId);
+
+                const rawText = await res.text();
+                if (!rawText || rawText.trim() === '') {
+                    throw new Error('El servidor devolvió una respuesta vacía. Revisa la conectividad.');
+                }
+
+                let data;
+                try {
+                    data = JSON.parse(rawText);
+                } catch (parseErr) {
+                    throw new Error('La respuesta del servidor no pudo ser interpretada como JSON válido.');
+                }
+
+                if (!res.ok) {
+                    throw new Error(data.detail || 'Error en la deliberación judicial.');
+                }
+
+                renderDictamen(data);
+                cargarEstadisticas();
+            } catch (err) {
+                if (err.name === 'AbortError') {
+                    alert('⏱️ La solicitud tardó más de 40 segundos. Si estás usando la Nube o local, intenta con el motor de Inferencia Heurística instantáneo.');
+                } else {
+                    alert(`Error en dictamen: ${err.message}`);
+                }
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }
+        }
+
+        // Renderizar Dictamen en Pantalla (Mapeo Completo y Resiliente)
+        function renderDictamen(data) {
+            const placeholder = document.getElementById('dictamen-empty-placeholder');
+            if (placeholder) placeholder.style.display = 'none';
+
+            const container = document.getElementById('result-container');
+            container.style.display = 'block';
+
+            const verd = (data.veredicto || 'INFRACCIÓN DETECTADA').toUpperCase();
+            const esConc = data.es_conceptual || verd.includes('CONCEPTUAL') || verd.includes('PEDAGÓG');
+
+            // Banner de entrega del robot
+            const robotTag = document.getElementById('robot-result-tag');
+            const robotSpeech = document.getElementById('robot-result-speech');
+            if (robotTag && robotSpeech) {
+                if (esConc) {
+                    robotTag.className = 'badge bg-success text-dark';
+                    robotTag.innerText = 'Orientación y Pedagogía Constitucional';
+                    robotSpeech.innerText = '¡Listo! He preparado una explicación ciudadana clara con la definición constitucional, criterios de la Suprema Corte (SCJN) y ejemplos prácticos de la vida cotidiana y tecnología/IA para justificar la importancia de este derecho.';
+                } else {
+                    robotTag.className = 'badge bg-warning text-dark';
+                    robotTag.innerText = 'Dictamen Forense de Algoritmo';
+                    robotSpeech.innerText = '¡Listo! He realizado la auditoría técnica y constitucional del sistema de Inteligencia Artificial, evaluando los riesgos éticos y emitiendo recomendaciones prácticas conforme a la ley mexicana.';
+                }
+            }
+
+            // Metadatos y Folio
+            const numExp = data.numero_expediente || 'AUD-' + new Date().getFullYear() + '-' + Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('result-expediente').innerText = `EXPEDIENTE ${numExp}`;
+
+            // Título del Caso / Ejemplo Precedente
+            const titleEl = document.getElementById('result-case-title-text');
+            const tit = data.titulo_caso || (CURRENT_LOADED_CASE ? CURRENT_LOADED_CASE.titulo : 'Caso Forense Particular');
+            if (titleEl) {
+                titleEl.innerText = tit;
+            }
+
+            document.getElementById('result-meta').innerText = `Fecha de Resolución: ${data.timestamp || new Date().toLocaleString()} • Motor Forense: ${data.motor_empleado || CURRENT_ENGINE}`;
+
+            // Veredicto Badge
+            const badge = document.getElementById('result-badge-veredicto');
+            badge.innerText = verd;
+
+            if (verd.includes('GRAVE') || verd.includes('VULNERA')) {
+                badge.style.background = '#e74c3c';
+                badge.style.color = '#ffffff';
+            } else if (verd.includes('MODERADA') || verd.includes('RIESGO')) {
+                badge.style.background = '#f39c12';
+                badge.style.color = '#000000';
+            } else {
+                badge.style.background = '#27ae60';
+                badge.style.color = '#ffffff';
+            }
+
+            // Diagnóstico Fáctico (Garantiza hechos y observaciones reales)
+            const factsText = data.diagnostico_factico || data.resumen_hechos || data.caso_hechos || (document.getElementById('case-text') ? document.getElementById('case-text').value : '') || 'Hechos fácticos analizados y ponderados por el Tribunal.';
+            document.getElementById('result-resumen').innerText = factsText;
+
+            // Nivel de Riesgo Ético y Puntuación Deontológica
+            const riesgoEl = document.getElementById('result-nivel-riesgo');
+            const riesgo = (data.nivel_riesgo_etico || data.nivel_riesgo_eu || 'ALTO RIESGO').toUpperCase();
+            riesgoEl.innerText = riesgo;
+
+            const score = (data.puntuacion_etica !== undefined) ? data.puntuacion_etica : 45;
+            const descEl = document.getElementById('result-riesgo-desc');
+            if (descEl) {
+                descEl.innerHTML = `
+                    <div class="mt-1">
+                        <span class="text-white-50 small">Viabilidad Deontológica:</span> 
+                        <strong class="text-white">${score} / 100</strong>
+                    </div>
+                    <small class="text-white-50">Calificación según doctrina constitucional y EU AI Act.</small>
+                `;
+            }
+
+            // Artículos y Garantías Violadas (Pills)
+            const artsWrap = document.getElementById('result-articulos');
+            artsWrap.innerHTML = '';
+            const arts = data.articulos_constitucion_violados || data.derechos_involucrados || [];
+            if (arts.length === 0) {
+                arts.push('Art. 1 CPEUM (Dignidad Humana y Pro Persona)', 'Art. 16 CPEUM (Privacidad y Datos Personales)');
+            }
+            arts.forEach(a => {
+                const sp = document.createElement('span');
+                sp.className = 'article-pill';
+                sp.innerHTML = `<i class="fas fa-scale-unbalanced text-danger me-1"></i>${a}`;
+                artsWrap.appendChild(sp);
+            });
+
+            // Fundamentación Jurídica y Control de Convencionalidad
+            const fundEl = document.getElementById('result-fundamentacion');
+            const justNac = data.justificacion_nacional || '';
+            const justInt = data.justificacion_internacional || '';
+
+            if (justNac && justInt) {
+                fundEl.innerHTML = `
+                    <div class="mb-3">
+                        <h6 class="text-success fw-bold mb-1"><i class="fas fa-landmark me-2"></i>Control de Constitucionalidad (CPEUM / SCJN - México):</h6>
+                        <p class="text-white-50 mb-0" style="line-height: 1.7; font-size: 0.93rem;">${justNac}</p>
+                    </div>
+                    <div class="pt-3 border-top border-secondary">
+                        <h6 class="text-warning fw-bold mb-1"><i class="fas fa-globe me-2"></i>Control de Convencionalidad (CADH / EU AI Act / UNESCO 2021):</h6>
+                        <p class="text-white-50 mb-0" style="line-height: 1.7; font-size: 0.93rem;">${justInt}</p>
+                    </div>
+                `;
+            } else {
+                fundEl.innerText = data.fundamentacion_juridica || justNac || justInt || 'Evaluación en estricto apego a los principios de proporcionalidad, legalidad y debido proceso.';
+            }
+
+            // Recomendaciones y Medidas de Mitigación
+            const recsWrap = document.getElementById('result-recomendaciones');
+            recsWrap.innerHTML = '';
+            const recs = data.recomendaciones || data.medidas_y_recomendaciones || [];
+            if (recs.length === 0) {
+                recs.push(
+                    'Implementar auditoría técnica de sesgos en el dataset de entrenamiento.',
+                    'Garantizar mecanismo vinculante de apelación con supervisión humana (Human-in-the-loop).'
+                );
+            }
+            recs.forEach(r => {
+                const li = document.createElement('li');
+                li.className = 'mb-2';
+                li.innerHTML = `<i class="fas fa-check-circle text-success me-2"></i>${r}`;
+                recsWrap.appendChild(li);
+            });
+
+            // Scroll suave hacia el resultado cuando ya está listo
+            setTimeout(() => {
+                const target = document.getElementById('dictamen');
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    container.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+
+        // Cargar y mostrar la Bitácora de Auditorías (Historial en SQLite)
+        async function cargarBitacora() {
+            const tbody = document.getElementById('bitacora-tbody');
+            if (!tbody) return;
+
+            try {
+                const headers = {};
+                if (AUTH_TOKEN) headers['Authorization'] = `Bearer ${AUTH_TOKEN}`;
+                const res = await fetch('/api/bitacora', { headers });
+                if (!res.ok) throw new Error('Error al consultar bitácora');
+                const data = await res.json();
+                const list = data.history || [];
+
+                if (list.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="7" class="text-center text-white-50 py-4">No hay dictámenes registrados aún. Evalúa un caso para generar el primer expediente.</td></tr>`;
+                    return;
+                }
+
+                tbody.innerHTML = '';
+                list.forEach(item => {
+                    const tr = document.createElement('tr');
+                    const verd = (item.veredicto || 'N/A').toUpperCase();
+                    let badgeClass = 'bg-secondary';
+                    if (verd.includes('VULNERA')) badgeClass = 'bg-danger';
+                    else if (verd.includes('RIESGO')) badgeClass = 'bg-warning text-dark';
+                    else if (verd.includes('NO VULNERA')) badgeClass = 'bg-success text-dark';
+
+                    // Preparar payload para re-renderizar
+                    const d = item.dictamen || {};
+                    d.titulo_caso = item.case_title || d.titulo_caso || 'Caso Forense Particular';
+                    d.diagnostico_factico = d.diagnostico_factico || item.case_description || '';
+                    d.veredicto = item.veredicto || d.veredicto;
+                    d.nivel_riesgo_eu = item.nivel_riesgo_eu || d.nivel_riesgo_eu;
+                    d.puntuacion_etica = item.puntuacion_etica || d.puntuacion_etica;
+
+                    const safeDataStr = JSON.stringify(d).replace(/"/g, '&quot;');
+
+                    tr.innerHTML = `
+                        <td><strong class="text-white">#${item.id}</strong></td>
+                        <td class="text-white-50 small">${item.created_at || '--'}</td>
+                        <td>
+                            <strong class="text-white d-block" style="font-size: 0.92rem;">${item.case_title || 'Caso Forense Particular'}</strong>
+                            <small class="text-white-50" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${item.case_description || ''}</small>
+                        </td>
+                        <td><span class="badge ${badgeClass}" style="font-size: 0.72rem;">${verd}</span></td>
+                        <td><span class="badge bg-dark border border-secondary text-white" style="font-size: 0.72rem;">${item.nivel_riesgo_eu || 'Alto'}</span></td>
+                        <td><span class="text-white-50 small">${item.ai_mode || 'INFERENCIA'}</span></td>
+                        <td>
+                            <button class="btn btn-xs btn-outline-success py-1 px-2" style="font-size: 0.75rem;" onclick="abrirDictamenDesdeBitacora('${safeDataStr}')">
+                                <i class="fas fa-eye me-1"></i>Ver
+                            </button>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (err) {
+                tbody.innerHTML = `<tr><td colspan="7" class="text-center text-danger py-3">Error al cargar bitácora: ${err.message}</td></tr>`;
+            }
+        }
+
+        function abrirDictamenDesdeBitacora(dataStr) {
+            try {
+                const parsed = JSON.parse(dataStr.replace(/&quot;/g, '"'));
+                if (bitacoraModalInstance) bitacoraModalInstance.hide();
+                renderDictamen(parsed);
+                scrollToSection('result-container');
+            } catch (e) {
+                console.error('Error parseando dictamen de bitácora:', e);
+            }
+        }
+
+        // Copiar Dictamen al Portapapeles
+        function copiarDictamen() {
+            const exp = document.getElementById('result-expediente').innerText;
+            const tit = document.getElementById('result-case-title-text').innerText;
+            const verd = document.getElementById('result-badge-veredicto').innerText;
+            const res = document.getElementById('result-resumen').innerText;
+            const fund = document.getElementById('result-fundamentacion').innerText;
+
+            const texto = `=== ${exp} ===
+TÍTULO: ${tit}
+VEREDICTO: ${verd}
+
+DIAGNÓSTICO FÁCTICO:
+${res}
+
+FUNDAMENTACIÓN:
+${fund}
+
+Emitido por iJURIS • Observatorio de Normatividad en IA (México)`;
+            navigator.clipboard.writeText(texto).then(() => {
+                alert('Dictamen copiado al portapapeles con formato pericial.');
+            });
+        }
+
+        // Cargar Estadísticas y Aforo
+        async function cargarEstadisticas() {
+            try {
+                const res = await fetch('/api/estadisticas');
+                if (res.ok) {
+                    const stats = await res.json();
+                    const aforo = `${stats.active_sessions || stats.usuarios_activos || 1} / 30`;
+                    const topAforo = document.getElementById('topbar-aforo');
+                    const metAforo = document.getElementById('metric-aforo');
+                    if (topAforo) topAforo.innerText = aforo;
+                    if (metAforo) metAforo.innerText = aforo;
+
+                    if (stats.total_audits !== undefined) {
+                        const audEl = document.getElementById('metric-auditorias');
+                        if (audEl) audEl.innerText = stats.total_audits;
+                    }
+                    if (stats.vulnera_count !== undefined) {
+                        const vulEl = document.getElementById('metric-vulneraciones');
+                        if (vulEl) vulEl.innerText = stats.vulnera_count;
+                    }
+                    if (stats.positivo_count !== undefined) {
+                        const posEl = document.getElementById('metric-positivos');
+                        if (posEl) posEl.innerText = stats.positivo_count;
+                    }
+                }
+            } catch (e) {
+                console.error('Error cargando estadísticas:', e);
+            }
+        }
+
+        // Funciones de Administración (Exclusivas de ADMIN)
+        async function cargarUsuariosAdmin() {
+            if (!CURRENT_USER || CURRENT_USER.role !== 'admin') return;
+
+            try {
+                const res = await fetch('/api/users', {
+                    headers: { 'Authorization': `Bearer ${AUTH_TOKEN}` }
+                });
+
+                if (!res.ok) throw new Error('Acceso no autorizado al panel de usuarios.');
+                const data = await res.json();
+                const tbody = document.getElementById('admin-users-tbody');
+                if (!tbody) return;
+
+                tbody.innerHTML = '';
+                (data.users || []).forEach(u => {
+                    const tr = document.createElement('tr');
+                    const statusBadge = u.is_active
+                        ? '<span class="badge bg-success text-dark">Activo</span>'
+                        : '<span class="badge bg-danger">Inactivo</span>';
+
+                    tr.innerHTML = `
+                        <td><strong>${u.username}</strong></td>
+                        <td>${u.full_name}</td>
+                        <td>${u.institutional_email}</td>
+                        <td><span class="badge bg-dark border border-secondary text-white">${u.role}</span></td>
+                        <td>${statusBadge}</td>
+                        <td>
+                            ${u.username !== 'admin' ? `
+                                <button class="btn btn-xs btn-outline-warning py-0 px-2 me-1" onclick="toggleUsuarioAdmin(${u.id})">
+                                    <i class="fas fa-power-off"></i>
+                                </button>
+                                <button class="btn btn-xs btn-outline-danger py-0 px-2" onclick="eliminarUsuarioAdmin(${u.id})">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            ` : '<span class="text-white-50 small">Protegido</span>'}
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (e) {
+                console.error('Error cargando usuarios admin:', e);
+            }
+        }
+
+        async function toggleUsuarioAdmin(id) {
+            if (!confirm('¿Deseas cambiar el estado de acceso de este usuario?')) return;
+            try {
+                const res = await fetch(`/api/users/${id}/toggle`, {
+                    method: 'PATCH',
+                    headers: { 'Authorization': `Bearer ${AUTH_TOKEN}` }
+                });
+                if (res.ok) {
+                    cargarUsuariosAdmin();
+                } else {
+                    const data = await res.json();
+                    alert(data.detail || 'Error al cambiar estado.');
+                }
+            } catch (err) {
+                alert(`Error: ${err.message}`);
+            }
+        }
+
+        async function eliminarUsuarioAdmin(id) {
+            if (!confirm('¿Seguro que deseas eliminar definitivamente este usuario del sistema?')) return;
+            try {
+                const res = await fetch(`/api/users/${id}`, {
+                    method: 'DELETE',
+                    headers: { 'Authorization': `Bearer ${AUTH_TOKEN}` }
+                });
+                if (res.ok) {
+                    cargarUsuariosAdmin();
+                } else {
+                    const data = await res.json();
+                    alert(data.detail || 'Error al eliminar usuario.');
+                }
+            } catch (err) {
+                alert(`Error: ${err.message}`);
+            }
+        }
+
+        async function crearUsuarioAdmin(e) {
+            e.preventDefault();
+            const username = document.getElementById('adm-username').value;
+            const full_name = document.getElementById('adm-fullname').value;
+            const email = document.getElementById('adm-email').value;
+            const password = document.getElementById('adm-password').value;
+            const role = document.getElementById('adm-role').value;
+
+            try {
+                const res = await fetch('/api/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${AUTH_TOKEN}`
+                    },
+                    body: JSON.stringify({ username, full_name, email, password, role })
+                });
+
+                if (res.ok) {
+                    alert('Usuario creado exitosamente.');
+                    document.getElementById('admin-new-user-form').reset();
+                    cargarUsuariosAdmin();
+                } else {
+                    const data = await res.json();
+                    alert(data.detail || 'Error al crear usuario.');
+                }
+            } catch (err) {
+                alert(`Error: ${err.message}`);
+            }
+        }
+    </script>
+</body>
+</html>

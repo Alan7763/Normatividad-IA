@@ -1,0 +1,325 @@
+====  DOCUMENTACION TECNICA Y JURIDICA DEL SISTEMA
+  OBSERVATORIO DE NORMATIVIDAD EN INTELIGENCIA ARTIFICIAL Y DERECHOS HUMANOS
+====Version del Sistema: 2.5.0 (Edicion Juridica Multi-Motor & Auditoria DDHH)
+Fecha de Revision: 2026-11-08
+Plataforma Operativa: Windows 10/11 • Python 3.13 • FastAPI • SQLite (WAL Mode)
+Hardware Objetivo Local: Laptop con GPU NVIDIA GeForce RTX 3060 (6 GB GDDR6 VRAM)
+Limite de Concurrencia: Maximo 30 usuarios simultaneos
+
+====1. PROPOSITO Y OBJETO DEL ASISTENTE JURIDICO
+====El Observatorio de Normatividad en Inteligencia Artificial y Derechos Humanos es
+un entorno integral de auditoria etico-legal disenado para evaluar, dictaminar y
+clasificar casos de despliegue de sistemas de Inteligencia Artificial (algoritmos
+predictivos, modelos generativos, vision artificial, biometria y perfilamiento).
+
+El asistente emite dictamenes fundados y motivados determinando:
+1. Veredicto sustantivo:
+   - "VULNERA DERECHOS HUMANOS"
+   - "RIESGO CONDICIONAL / MITIGABLE"
+   - "NO VULNERA (PRACTICA POSITIVA Y ETICA)"
+2. Nivel de Riesgo segun el Reglamento de IA de la Union Europea (EU AI Act):
+   - Riesgo Inaceptable (Prohibido)
+   - Alto Riesgo
+   - Riesgo Limitado / Especifico (Transparencia)
+   - Riesgo Minimo
+3. Puntuacion de Viabilidad Etica y Cumplimiento de DDHH (0 a 100 puntos).
+4. Catalogo de derechos fundamentales y garantias individuales comprometidos.
+5. Fundamentacion nacional (Marco Constitucional Mexicano, SCJN y CNDH).
+6. Fundamentacion internacional (EU AI Act, UNESCO 2021 y Pacto de San Jose - CADH).
+7. Salvaguardas tecnicas y juridicas obligatorias de mitigacion.
+
+====2. MARCO NORMATIVO APLICADO
+====
+A) MARCO CONSTITUCIONAL Y LEGAL NACIONAL (MEXICO):
+- Constitucion Politica de los Estados Unidos Mexicanos (CPEUM):
+  * Articulo 1: Principio pro persona, dignidad humana y prohibicion expresa
+    de toda discriminacion motivada por origen etnico, genero, edad, discapacidades
+    o condicion socioeconomica.
+  * Articulo 4: Derecho a la proteccion de la salud y principio del Interes
+    Superior de la Ninez (proteccion de datos de menores).
+  * Articulos 6 y 7: Derecho a la informacion veraz, inviolabilidad de las
+    comunicaciones, libertad de expresion y prohibicion de censura.
+  * Articulo 14: Garantia de audiencia, legalidad y debido proceso.
+  * Articulo 16: Deber de fundamentacion y motivacion por autoridad competente;
+    derecho inalienable a la proteccion de datos personales, privacidad y vida intima.
+  * Articulo 17: Derecho de acceso a una justicia pronta, completa e imparcial;
+    prohibicion de delegacion irresponsable de decisiones jurisdiccionales en algoritmos.
+  * Articulo 123: Derechos laborales, no discriminacion en la contratacion y empleo.
+- Ley Federal de Proteccion de Datos Personales en Posesion de los Particulares (LFPDPPP)
+  y Ley General de Proteccion de Datos Personales en Posesion de Sujetos Obligados:
+  * Principios rectores: licitud, consentimiento informado, finalidad, lealtad,
+    proporcionalidad, responsabilidad y derechos ARCO.
+  * Reglas estrictas para el tratamiento de datos biometricos y sensibles.
+- Criterios Jurisprudenciales de la Suprema Corte de Justicia de la Nacion (SCJN):
+  * Estandares sobre intervencion de comunicaciones, privacidad en entornos
+    digitales y proteccion reforzada contra perfiles discriminatorios.
+- Declaracion de Chapultepec:
+  * Libertad de prensa y expresion frente a campanas sinteticas de desinformacion.
+
+B) MARCO JURIDICO INTERNACIONAL:
+- Reglamento de Inteligencia Artificial de la Union Europea (EU AI Act - Reglamento UE 2024/1689):
+  * Clasificacion jerarquica de riesgo segun el impacto en la salud, seguridad
+    y derechos fundamentales.
+  * Prohibicion de reconocimiento facial biometrico remoto en tiempo real en espacios
+    publicos y reconocimiento de emociones en escuelas y lugares de trabajo (Art. 5).
+  * Obligacion de etiquetado y marcas de agua indelebles para contenidos sinteticos /
+    deepfakes (Art. 50).
+- Recomendacion sobre la Etica de la Inteligencia Artificial de la UNESCO (2021):
+  * Principios obligatorios: intervencion y supervision humana (Human-in-the-Loop),
+    explicabilidad, transparencia algoritmica, diversidad cultural y sostenibilidad.
+- Convencion Americana sobre Derechos Humanos (Pacto de San Jose - CADH):
+  * Articulo 8: Garantias judiciales de debido proceso y defensa adecuada.
+  * Articulo 11: Proteccion de la honra y dignidad frente a injerencias arbitrarias.
+  * Articulo 13: Libertad de pensamiento y expresion sin manipulacion fraudulenta.
+  * Articulo 24: Igualdad ante la ley.
+
+====3. MODOS DE ANALISIS IMPLEMENTADOS
+====El usuario puede seleccionar libremente entre tres motores de evaluacion desde
+la interfaz grafica:
+
+--------------------------------------------------------------------------------
+MODO 1: INFERENCIA JURIDICA Y PALABRAS CLAVE (100% OFFLINE E INSTANTANEO)
+--------------------------------------------------------------------------------
+- Caracteristicas:
+  * Opera de forma totalmente autonoma y sin conexion a internet ni servidores externos.
+  * Latencia de evaluacion: Menor a 5 milisegundos.
+  * Ideal para auditorias inmediatas en aulas, tribunales o entornos con baja conectividad.
+- Base de Conocimiento Juridico (+50 terminos y categorias clave):
+  * Vigilancia biometrica: reconocimiento facial, iris, huellas, camaras cctv,
+    metro, rastreo masivo, via publica, pegasus, espionaje, sin orden judicial.
+  * Discriminacion y sesgos: reclutamiento, filtrar curriculums, codigo postal,
+    edad, genero, mujer, etnia, raza, indigena, embarazo, scoring crediticio.
+  * Justicia penal: reincidencia penal, policia predictiva, prision preventiva,
+    sospecha algoritmica, caja negra, tribunal, juez ia, sentencia automatizada.
+  * Desinformacion y democracia: deepfake, clonacion de voz, video sintetico,
+    campana electoral, candidato, elecciones, desinformacion, botnet, suplantacion.
+  * Salud y bioetica: diagnostico medico, retinopatia, hospital, expediente clinico,
+    triaje automatizado, consentimiento informado, supervision medica, biopsia.
+  * Proteccion de la ninez: menores, ninos, ninas, escuela, aula, camara web,
+    estres infantil, deteccion de emociones, monitoreo escolar.
+  * Educacion e inclusion: lenguas indigenas, nahuatl, maya, otomi, tutor inclusivo,
+    codigo abierto, datos abiertos, patrimonio cultural, accesibilidad.
+  * Factores atenuantes y eticos: supervision humana calificada, human-in-the-loop,
+    consentimiento informado, anonimizacion de datos, auditoria de sesgos, explicabilidad.
+
+--------------------------------------------------------------------------------
+MODO 2: MODELO LOCAL OLLAMA (GGUF GRATIS PARA GPU RTX 3060 LAPTOP)
+--------------------------------------------------------------------------------
+- Seleccion y Justificacion del Modelo:
+  * Hardware objetivo: Laptop con NVIDIA GeForce RTX 3060 Mobile con 6 GB VRAM GDDR6.
+  * Modelo Predeterminado Recomendado: 'qwen2.5:7b' (cuantizacion Q4_K_M).
+    Tamano en memoria: ~4.7 GB VRAM.
+    Justificacion tecnica: Cabe comodamente dentro de los 6 GB de VRAM de la RTX 3060
+    dejando espacio para el contexto de 4096 tokens y la memoria grafica del sistema
+    operativo. Ofrece una comprension excepcional del idioma espanol, terminologia
+    juridica y estricto respeto a estructuras JSON complejas.
+  * Modelo Alternativo Ultra-Liviano: 'llama3.2:3b' (~2.0 GB VRAM).
+    Justificacion: Recomendado para ordenadores donde se requiera tener simultaneamente
+    otras aplicaciones 3D, IDEs pesados o navegadores con decenas de pestanas abiertas.
+- Guia Rapida de Puesta en Marcha de Ollama en Windows:
+  1. Instalar Ollama para Windows desde: https://ollama.com/download
+  2. Abrir PowerShell o Simbolo del Sistema (CMD) y ejecutar:
+     ollama run qwen2.5:7b
+     (O alternativamente: ollama run llama3.2:3b)
+  3. El modelo se descargara en formato GGUF de forma completamente gratuita.
+  4. Ollama iniciara su servicio de inferencia local en: http://localhost:11434
+  5. En el asistente web, presiona "Probar Estado" para verificar la comunicacion.
+  6. El sistema fuerza internamente el parametro 'response_format: {"type": "json_object"}'
+     garantizando dictamenes estructurados sin errores de parseo.
+
+--------------------------------------------------------------------------------
+MODO 3: API EN LA NUBE (GROQ OFICIAL)
+--------------------------------------------------------------------------------
+- Caracteristicas:
+  * Inferencia de alta velocidad impulsada por LPUs (Language Processing Units) de Groq.
+  * Modelos integrados con respaldo automatico y baja latencia:
+    1. 'openai/gpt-oss-20b' con reasoning_effort='low' (Principal: latencia ultra rapida de ~1.2 segundos).
+    2. 'openai/gpt-oss-120b' (Respaldo secundario).
+    3. 'qwen/qwen3.8-27b' (Respaldo terciario).
+- Correccion del Problema de Parseo de JSON y Timeouts (Unexpected end of JSON input):
+  * Causa raiz del error: El modelo previo generaba esperas de cola saturada en Groq (mas de 2 minutos)
+    o consumia el limite de tokens por minuto (TPM), provocando cortes en la conexion HTTP y dejando
+    el cuerpo de la respuesta vacio, lo que disparaba 'Unexpected end of JSON input' en el navegador.
+  * Solucion implementada:
+    1. Optimizacion a 'openai/gpt-oss-20b' con parametro reasoning_effort='low', reduciendo el tiempo
+       de respuesta de 130 segundos a solo 1.2 segundos.
+    2. Proteccion de cliente con AbortController (35s) y lectura defensiva via 'await res.text()'
+       antes de 'JSON.parse()', impidiendo que la interfaz web se congele o lance excepciones no controladas.
+    3. Modulo 'extraer_json_valido': Algoritmo extractor con expresiones regulares
+       multilinea que detecta objetos JSON delimitados por llaves { ... }, elimina
+       comas huerfanas (trailing commas), sanea comillas tipograficas y valida la
+       presencia obligatoria de todas las claves requeridas.
+    4. Fallback automatico inteligente: Si la API de Groq experimenta saturacion de tasa (HTTP 429) o
+       cola, el backend conmuta de inmediato al Motor Heuristico Local, entregando siempre un dictamen
+       juridico completo en menos de 2 segundos.
+  * Eliminacion de la Llave de la Interfaz:
+    Por seguridad y simplicidad, se elimino todo campo donde el usuario comun debia pegar
+    su API key. La llave se resguarda exclusivamente en el backend (archivo 'api',
+    variable de entorno 'GROQ_API_KEY' o configuracion del servidor).
+
+====4. SISTEMA DE AUTENTICACION, PRIVACIDAD Y BASE DE DATOS
+====
+A) INICIO DE SESIÓN Y REGISTRO POR CORREO Y CONTRASEÑA (SIN OTP):
+- Flujo directo y simplificado:
+  1. El usuario introduce su correo electrónico y contraseña en el formulario.
+  2. Si es un usuario nuevo, selecciona la pestaña "Registrarse", ingresa su nombre
+     completo, correo y contraseña. El sistema cifra la contraseña con Bcrypt (costo 12)
+     y ALMACENA PERMANENTEMENTE el registro en la tabla 'users' de 'normatividad_ia.db'.
+  3. Si ya está registrado, el sistema valida las credenciales y emite el token de sesión.
+  4. Lenguaje adaptado al contexto legal y jurisprudencial de México (CPEUM, LFPDPPP, CNDH y SCJN).
+  5. Interfaz modernizada con diseño Bento-Grid (paleta ciber-esmeralda inspirada en Webflow)
+     y micro-animaciones interactivas en tarjetas, aforo y progreso de dictámenes.
+
+B) USUARIO LOCAL / TEMPORAL (MODO INVITADO EFIMERO):
+- Requisito del usuario: "un usuario local con perdida de este en cuanto cierre sesion".
+- Funcionamiento:
+  1. El usuario pulsa "Entrar como Usuario Local (Temporal)".
+  2. No se requiere correo ni contrasena.
+  3. No se crea ningun registro en la tabla permanente 'users'.
+  4. El token se almacena en 'sessionStorage' del navegador (se descarta si se cierra la ventana).
+  5. En cuanto el usuario presiona "Cerrar Sesion", el backend ejecuta de forma inmediata:
+     database.purge_guest_user_data(username)
+     eliminando cualquier evaluacion y registro generado por esa sesion efimera.
+     La sesion y sus datos se pierden irreversiblemente al salir.
+
+C) ADMINISTRADOR CON CONTRASENA CIFRADA (BCRYPT):
+- Cuenta por defecto:
+  * Usuario: admin
+  * Contrasena: Admin123!
+- La contrasena se encuentra cifrada de manera unidireccional con algoritmo Bcrypt (costo 12).
+- Permite gestionar usuarios (activar, suspender, eliminar) y consultar todas las auditorias.
+
+====5. GESTION DE CONCURRENCIA (LIMITE ESTRICTO DE 30 USUARIOS SIMULTANEOS)
+====- Capacidad maxima: MAX_CONCURRENT_USERS = 30.
+- Mecanismos de control:
+  1. Diccionario en memoria 'ACTIVE_SESSIONS' monitoreado con marcas de tiempo (timestamp).
+  2. 'clean_expired_sessions()': Expira automaticamente sesiones inactivas tras 60 minutos,
+     liberando de inmediato cupo para nuevos estudiantes o auditores.
+  3. Al llegar a 30 usuarios simultaneos, cualquier nueva peticion de inicio de sesion es
+     rechazada limpiamente con codigo HTTP 429 (Too Many Requests):
+     "Capacidad maxima alcanzada: El observatorio admite un limite estricto de 30 usuarios simultaneos."
+  4. Indicador visual en tiempo real en la barra de navegacion: "Usuarios: X / 30".
+  5. SQLite configurado en modo WAL (Write-Ahead Logging) y PRAGMA busy_timeout=5000 para
+     garantizar lecturas y escrituras simultaneas sin bloqueos ni contencion de hilos.
+
+====6. CATALOGO DE CASOS PRECARGADOS
+====El sistema incluye 8 casos precargados accesibles con un solo clic:
+1. Reconocimiento Facial en Tiempo Real en Transporte Publico (Vigilancia Biometrica Masiva).
+2. Filtro de Reclutamiento con Sesgo por Genero, Edad y Codigo Postal (Discriminacion Laboral).
+3. Algoritmo Predictivo de Reincidencia Penal para Prision Preventiva (Debido Proceso y Defensa).
+4. Campana Electoral con Deepfakes Hiperrealistas y Clonacion de Voz (Desinformacion y Democracia).
+5. Diagnostico de Retinopatia Diabetica Asistido por IA con Supervision Medica (Caso Etico / Positivo).
+6. Asistente Educativo Multilingue en Lenguas Indigenas con Codigo Abierto (Inclusion y Cultura).
+7. Scoring Crediticio Automatizado con Analisis de Comportamiento Digital (Servicios Financieros).
+8. Monitoreo Biometrico Emocional de Alumnos en Clases Virtuales (Proteccion de la Ninez en Aulas).
+
+================================================================================7. ENDPOINTS DE LA API REST (FASTAPI)
+====
+- GET  /                               : Interfaz Web Principal (Estilo Webflow iDesigner Dark Emerald).
+- GET  /css/idesigner.css               : Hoja de estilos de diseno oscuro futurista.
+- GET  /img/idesigner/*                 : Recursos visuales locales (mockups, flechas, marca de agua).
+- GET  /js/idesigner/*                  : Motor de interacciones y animaciones de Webflow.
+- POST /api/auth/email-login            : Inicio de sesion directo por correo y contrasena con Bcrypt.
+- POST /api/auth/email-register         : Registro de cuentas con correo y contrasena en SQLite.
+- POST /api/auth/local-guest           : Inicia sesion como usuario local temporal efimero.
+- POST /api/auth/logout                : Cierra sesion y purga datos si es usuario local.
+- POST /api/login                      : Inicio de sesion tradicional por contrasena (Admin).
+- GET  /api/casos (o /api/cases)       : Catalogo publico de casos juridicos precargados.
+- POST /api/analizar (o /api/evaluate) : Ejecuta dictamen juridico (inferencia, local u nube).
+- GET  /api/history                    : Obtiene historial de dictamenes del usuario/admin.
+- GET  /api/stats                      : Devuelve estadisticas y aforo concurrente activo (X/30).
+- GET  /api/health-ollama              : Verifica estado de conexion y modelos en Ollama.
+- GET  /api/users                      : Lista usuarios registrados (Solo Administrador).
+- POST /api/users                      : Registra nuevo usuario con Bcrypt (Solo Administrador).
+- PATCH /api/users/{id}/toggle         : Suspende o activa un usuario (Solo Administrador).
+- DELETE /api/users/{id}               : Elimina permanentemente a un usuario (Solo Administrador).
+
+====8. GUIA DE PUESTA EN MARCHA DEL SISTEMA
+====
+1. REQUISITOS PREVIOS:
+   - Python 3.10 o superior (Instalado y anadido al PATH).
+   - Paquetes de Python: fastapi, uvicorn[standard], pydantic, httpx, bcrypt, python-dotenv.
+
+2. EJECUCION DEL SERVIDOR WEB:
+   Abrir una terminal en la raiz del proyecto y ejecutar:
+   python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
+
+3. ACCESO AL OBSERVATORIO:
+   Abrir el navegador web e ingresar a:
+   http://localhost:8000
+
+4. ACCESOS Y ROLES PRECONFIGURADOS:
+   a) Acceso por Correo y Contrasena:
+      Pestana 'Iniciar Sesion' o 'Registrarse' en el modal de acceso.
+   b) Acceso como Usuario Local (Sesion Efimera):
+      Boton 'Acceder como Usuario Local (Sesion Efimera)'. Todos los datos y
+      consultas realizadas se purgan de la memoria y SQLite al cerrar sesion.
+   c) Administrador del Sistema:
+      Usuario: admin
+      Contrasena: Admin123!
+      (Habilita la pestana y seccion de 'Gestion' de usuarios en la barra superior).
+
+5. INTERFAZ GRAFICA ADAPTADA (WEBFLOW IDESIGNER):
+   - Hero Section con Modelo 3D Interactivo (Spline WebGL nativo a 60/120 FPS):
+     * Eliminacion de artefactos 2D duplicados y correccion del desfase visual sobre la tipografia.
+     * Tipografia de alto impacto 'iJURIS•IA' y anillos biometricos de radar 100% estaticos, firmes y nitidos en el plano posterior.
+     * Seguimiento de cursor fluido, ultra reactivo y sin latencia, ejecutado directamente por hardware en la GPU (WebGL) sin sobrecargar el hilo del DOM.
+   - Franja de Organos Reguladores (SCJN, CPEUM, CNDH, INAI, UNESCO, EU AI Act).
+   - Seccion Bento Grid de 'SERVICIOS' en esmeralda oscuro / negro (#0d2117 / #05100a)
+     identica al canvas de Webflow (Inferencia Heuristica, Ollama RTX 3060, Nube Groq
+     y Auditoria Constitucional).
+   - Selector rapido de motores de inferencia con boton de prueba para Ollama local.
+
+6. INTEGRIDAD FORENSE, OBSERVACIONES Y BITACORA DE CASOS:
+   - Deteccion y Asociacion Automatica de Titulo:
+     * Si el usuario selecciona un ejemplo precedente (de los 8 precargados), el sistema vincula su titulo oficial (ej. '1. Reconocimiento Facial en Tiempo Real...').
+     * Si se ingresa un caso particular, se infiere y sintetiza un titulo descriptivo registrado en el expediente y en la base de datos SQLite.
+   - Retroalimentacion Factica y Juridica Completa:
+     * 'Diagnostico Factico': Presenta el analisis pericial exhaustivo de los hechos evaluados, erradicando etiquetas genericas o sin observaciones.
+     * 'Control de Constitucionalidad': Cita preceptos de la CPEUM (Arts. 1, 4, 6, 14, 16) y jurisprudencia de la SCJN.
+     * 'Control de Convencionalidad': Desglosa el riesgo conforme al EU AI Act (Inaceptable/Alto/Limitado/Minimo), Recomendacion UNESCO 2021 y CADH.
+     * 'Medidas de Mitigacion': Acciones vinculantes y tecnicas de salvaguarda (Human-in-the-loop, auditoria de sesgos).
+   - Bitacora Jurisdiccional Integrada (Modal 'Bitacora' en la Barra Superior):
+     * Permite auditar todos los expedientes emitidos con su titulo, fecha, veredicto, riesgo y motor forense empleado.
+     * Incorpora boton pericial 'Ver' para recargar cualquier resolucion previa directamente en el visor de dictamenes.
+============================================================================
+
+
+============================================================================
+7. MODALIDAD INTERACTIVA DEL ASISTENTE ROBOT Y CONSULTA CONCEPTUAL (V 3.0)
+============================================================================
+A) POD INTERACTIVO Y DIALOGO CIUDADANO EN EL HERO:
+   - Pod flotante con diseno glassmorphism dark-cyber anclado en la cabecera 3D.
+   - Incluye globo de dialogo interactivo:
+     "¡Hola! Soy tu asistente de orientacion juridica y derechos humanos frente a la Inteligencia Artificial en Mexico. Hazme una pregunta ciudadana o pidele a nuestro sistema que audite un algoritmo."
+   - Pastillas de consulta rapida ciudadana integradas:
+     * ¿Que son los derechos humanos?
+     * Art. 16: Privacidad y Datos en IA
+     * Presuncion de Inocencia ante Algoritmos
+     * No Discriminacion Laboral por Algoritmos
+     * Ver 8 Casos Emblematicos de Prueba
+   - Campo de entrada rapida de texto con boton 'Preguntar'.
+   - Animacion y Desplazamiento Asistido: Al formular una pregunta o dar clic en una pastilla, el asistente actualiza su globo de dialogo ("Trasladando tu consulta a la mesa de trabajo..."), inserta el texto con efecto de resalte (glow mint), activa la barra de acompanamiento en vivo ("🤖 Asistente en vivo") y desciende suavemente (smooth scroll) hasta la mesa de trabajo (#dictamen), ejecutando de inmediato la deliberacion.
+   - Banner de Entrega del Robot en el Dictamen: La resolucion incluye un encabezado animado del Asistente Virtual entregando la respuesta en lenguaje ciudadano accesible.
+
+B) BIFURCACION Y MOTOR PARA CONSULTAS CONCEPTUALES Y PEDAGOGICAS:
+   - Deteccion Inteligente: Distingue entre preguntas conceptuales/teoricas (ej. definiciones de derechos humanos, que dice el art 16, debido proceso, etc.) y casos practicos de auditoria de algoritmos.
+   - Respuesta a Preguntas Conceptuales:
+     * Titulo representativo (ej. 'Consulta: Definicion y Principios de los Derechos Humanos en Mexico', 'Consulta: Articulo 16 CPEUM...').
+     * Veredicto de maxima proteccion: 'CONSULTA CONCEPTUAL RESUELTA (DERECHO HUMANO FUNDAMENTAL)'.
+     * Calificacion etica: 100 / 100 y Proteccion Constitucional Maxima.
+     * Definicion clara y directa en espanol de Mexico accesible, sin rodeos tecnicos.
+     * Articulos aplicables de la CPEUM (Arts. 1, 4, 6, 14, 16) y criterios de la SCJN y CNDH.
+     * JUSTIFICACION MEDIANTE EJEMPLOS PRACTICOS OBLIGATORIOS:
+       1. Ejemplos de la vida cotidiana en Mexico (en el trabajo, el transporte, la escuela o tramites).
+       2. Ejemplos del impacto de la Inteligencia Artificial y la tecnologia (reconocimiento facial, filtros de empleo con IA, scoring bancario discriminatorio).
+     * Consejos y acciones para la ciudadania (como ejercer Derechos ARCO, acudir al INAI, queja ante CNDH y juicio de amparo).
+
+C) ADAPTACION A ESPANOL LATINO (MEXICO) ACCESIBLE:
+   - Se erradicaron palabras excesivamente tecnicas o rebuscadas (como 'ponderacion lexicologica', 'control deontologico', 'exegesis hermeneutica', 'tutela iusfundamental', 'infraccion prima facie').
+   - Los servicios y etiquetas se adaptaron a un lenguaje claro y comprensible:
+     * 'Revision Rapida Local' (analisis instantaneo sin consumir internet).
+     * 'Modelo Local Ollama RTX 3060' (ejecutado en la GPU con 100% de privacidad).
+     * 'Nube Groq Ultra Rapida' (analisis legal profundo en 1 segundo con la Constitucion y SCJN).
+     * 'Evaluacion Etica y Legal' (calificacion de 0 a 100 y recomendaciones para defenderte).
+============================================================================
