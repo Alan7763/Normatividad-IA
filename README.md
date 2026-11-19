@@ -12,7 +12,7 @@ Plataforma de analisis jurídico y de auditoría algorítmica para evaluar siste
 - **Base de Datos y Seguridad**: Control de sesiones, auditoría (`normatividad_ia.db` autogenerada), hashing seguro con `bcrypt` y protección de rutas administrativas.
 
 
-## 🛠️ Requisitos e Instalación Local
+## Requisitos e Instalación Local
 
 1. **Clonar o descargar el repositorio**:
    ```bash
@@ -52,7 +52,7 @@ Plataforma de analisis jurídico y de auditoría algorítmica para evaluar siste
    Abre tu navegador en `http://localhost:8000`.
 
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```text
 ├── Lawfice/              # Recursos estáticos (CSS, JS, imágenes, fuentes, librerías) uso e integracion de caracteristicas
